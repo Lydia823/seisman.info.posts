@@ -1,0 +1,1546 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://seisman.info</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>http://seisman.info/change-orientation-of-y-axis-annotations.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/change-title-of-postscript-files-generated-by-gmt.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/srtm15-plus.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/profile-from-3d-data.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/my-referral-links.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hilbert-transform-in-sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/travel-time-calculation.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-cps330.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/tau-integral-in-spherical-earth.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/frame-and-gridline.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt5-custom-axes.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/convert-seed-to-sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/axes-without-ticks.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/pssac-notes.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plot-traces-on-maps.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/pssac2-notes.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/geophysicist.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/google-sitelinks.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-evt2sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/area-fill.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt-insert-map.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plot-fault-names.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-gmt4-under-mac.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/change-max-file-allowed-in-sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/wechat-subscription.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/declarations.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/wilber3.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/points-inside-polygons.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/rdseed-notes.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/seismic-waveform-data-request.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-gmt5.2.x-under-linux.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/raypath-between-events-and-stations.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sofi2d-notes.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plot-specified-gridline-on-maps.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sac-convert-displacement-to-velocity.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plot-lines-with-gradient-colors.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gfw.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/depth-profile-in-polar-coordinates.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/instrumental-response-removed-or-not.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plot-rail-tracks.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/you-are-wanted.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/taup-custom-models.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/taup-identify-multiple-P-phases.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/iris-syngine.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt-setup-database.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/journals.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sacio-for-fortran90.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/web-service-clients.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/file-organization.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sod-notes.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/coordinate-systems-in-seismology.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/calculate-travel-time-of-deep-mantle-underside-reflection.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinetpy.html</loc>
+        <lastmod>2017-04-10T11:04:55.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/customized-gmt-logo.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/introduction-to-dcw-gmt5.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/usage-of-dcw-data.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt-map-coloring.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/china-administrative-areas-data.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sac-display-copyright.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/cps330-intro.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/iris-data-formats.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/convert-geotiff-to-gmt.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/aster-gdem.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-earthquake-catalog-pde.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/how-to-choose-freqlimits.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/download-data-from-iris-ftp.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/perl-script-for-downloading-iris-ftp-data.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/iris-station-distribution.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gebco-global-bathymetry-data.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/conflict-between-epel-and-rpmforge.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/seismic-file-name-convections.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/how-to-write-makefile.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/radiation-pattern-and-beach-ball.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/read-and-write-sac-in-c-program.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/read-and-write-sac-in-fortran-program.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/anaconda-scientific-python-distribution.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/ocean-floor-crustal-age.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plate-boundary-datasets.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/double-y-axis-plot.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/change-background-color-of-window-in-sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/python-ustc-wlt-login.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-yong-chinese-input-method-under-centos-7.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/uninstall-intel-parallel-studio-completely.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/blog-hosts.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/send-mail-in-python.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/intorduction-to-hinet.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinet-win32-format.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinet-instrumental-response.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/export-posts-as-pdf.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-rdseed.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-taup.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/calculate-pierce-points-using-taup.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/mark-travel-time-using-taup.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/blurry-frame-in-gmt.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/add-annotations-in-gmt.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/calculate-travel-time-using-taup.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/coherent-pdf-command-line-tools.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plot-multiple-lines-in-different-scales.html</loc>
+        <lastmod>2017-04-10T11:04:55.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/instrumental-response-in-seismology.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/physical-details-of-instrumental-response.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/simple-analysis-of-resp.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/simple-analysis-of-sac-pz.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/deep-analysis-of-response.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-cmt.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/scalar-moment-and-moment-magnitude.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/how-to-use-gmt-ko.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/java-plugin-of-firefox.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/from-moment-tensor-to-double-couple.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/jplotresp.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/iris-breq-fast.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/single-quoted-string-literals-in-perl.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/calculate-gcarc-after-adding-event-location.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/conversion-of-different-sac-formats.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/leap-year.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/timing-of-sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/web-service-fetch-scripts.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-relief-model-etopo5.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-digital-elevation-model-gtopo30.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-relief-model-etopo1.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-relief-model-etopo2.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sac-save-image.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/mopad-moment-tensor-plotting-and-decomposition.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/headers-of-station-in-sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/waveform-comparison-plot.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/body-force-equivalents.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/faults-in-seismology.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/imagemagick-convert.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/srtm.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-relief-models.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/perl-progressbar.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/matlab-scripts-for-sac.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/timespan-in-perl.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/use-latex-in-gmt.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/coastline-clip.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/introduction-to-pdftk.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/perl-plenv.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt5-transparency.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/linux-endian.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/find-intersection-and-difference-of-two-arrays.html</loc>
+        <lastmod>2017-04-10T11:04:55.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/travel-time-packages.html</loc>
+        <lastmod>2017-03-30T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/fk-notes.html</loc>
+        <lastmod>2017-01-08T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/geo-software.html</loc>
+        <lastmod>2016-12-19T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/linux-environment-for-seismology-research.html</loc>
+        <lastmod>2016-10-18T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-gmt4-under-linux.html</loc>
+        <lastmod>2016-10-06T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/python-pyenv.html</loc>
+        <lastmod>2016-07-29T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-texlive-under-linux.html</loc>
+        <lastmod>2016-06-05T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/personal-preferences.html</loc>
+        <lastmod>2016-05-20T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sitelog.html</loc>
+        <lastmod>2016-05-12T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hello-world.html</loc>
+        <lastmod>2016-05-11T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-gcap.html</loc>
+        <lastmod>2016-04-06T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-ccp.html</loc>
+        <lastmod>2016-03-11T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/maintainers-for-sac-manual-wanted.html</loc>
+        <lastmod>2016-03-07T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/send-email-in-perl.html</loc>
+        <lastmod>2016-03-06T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/notes-of-ppk.html</loc>
+        <lastmod>2016-02-27T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/faster-ppk.html</loc>
+        <lastmod>2016-02-27T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/taup-toolkit.html</loc>
+        <lastmod>2016-02-23T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/sac-manual.html</loc>
+        <lastmod>2016-01-08T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-gmt5-under-linux.html</loc>
+        <lastmod>2015-11-06T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/chinese-support-for-sphinx.html</loc>
+        <lastmod>2015-11-06T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/plot-equal-distance-lines.html</loc>
+        <lastmod>2015-11-02T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/calculate-distance-to-coast.html</loc>
+        <lastmod>2015-10-28T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt-chinese-under-linux.html</loc>
+        <lastmod>2015-08-30T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt4-style-guide.html</loc>
+        <lastmod>2015-08-07T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-pssac2.html</loc>
+        <lastmod>2015-07-16T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-pssac.html</loc>
+        <lastmod>2015-07-15T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/how-to-install-softwares-under-centos-7.html</loc>
+        <lastmod>2015-07-13T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-hk.html</loc>
+        <lastmod>2015-07-12T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/slowness-and-ray-parameter.html</loc>
+        <lastmod>2015-07-07T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/mix-geographical-coordinate-with-cartesian-coordinate.html</loc>
+        <lastmod>2015-06-28T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/multiple-versions-of-gmt.html</loc>
+        <lastmod>2015-06-08T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-gmt5-under-windows.html</loc>
+        <lastmod>2015-06-01T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/global-crustal-model-crust1.html</loc>
+        <lastmod>2015-05-13T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/intel-non-commercial-software.html</loc>
+        <lastmod>2015-04-07T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/srtm30-plus.html</loc>
+        <lastmod>2015-04-06T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/mini-template-for-xeCJK.html</loc>
+        <lastmod>2015-03-22T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/fcitx-for-centos-7.html</loc>
+        <lastmod>2015-03-08T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/merge-multiple-pdfs.html</loc>
+        <lastmod>2015-01-26T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/gmt-chinese-support-under-windows.html</loc>
+        <lastmod>2015-01-12T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/how-to-use-gmt-under-windows.html</loc>
+        <lastmod>2015-01-12T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinet-continuous-waveform-data.html</loc>
+        <lastmod>2014-12-02T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/install-nvidia-drivers-under-linux.html</loc>
+        <lastmod>2014-11-30T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinet-win32tools.html</loc>
+        <lastmod>2014-11-30T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinet-things.html</loc>
+        <lastmod>2014-11-02T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinet-continuous-waveform-data-source-code.html</loc>
+        <lastmod>2014-11-02T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/wps-office-for-centos7.html</loc>
+        <lastmod>2014-11-02T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/calculate-dist-az-baz.html</loc>
+        <lastmod>2014-10-27T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/fk-installation.html</loc>
+        <lastmod>2014-10-21T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/hinet-channel-table.html</loc>
+        <lastmod>2014-09-08T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/calculate-jday.html</loc>
+        <lastmod>2014-08-24T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/simple-guide-to-seismology.html</loc>
+        <lastmod>2014-07-06T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/traps-of-sac.html</loc>
+        <lastmod>2014-04-17T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://seisman.info/difference-between-resp-and-pz-while-deconvolution.html</loc>
+        <lastmod>2013-07-05T16:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

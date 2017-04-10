@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SeisMan</title>
+  <subtitle>学会整理自己的经验是科研的第一步。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://seisman.info/"/>
+  <updated>2017-04-10T11:04:55.373Z</updated>
+  <id>http://seisman.info/</id>
+  
+  <author>
+    <name>SeisMan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HinetPy: Hi-net 数据申请与处理模块</title>
+    <link href="http://seisman.info/hinetpy.html"/>
+    <id>http://seisman.info/hinetpy.html</id>
+    <published>2017-03-31T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>HinetPy 是一个用于从 NIED Hi-net 网站下载地震波形数据并进行数据格式转换的Python模块。</p>
+<ul>
+<li>项目主页： https://github.com/seisman/HinetPy</li>
+<li>官方文档： https://seisman.github.io/HinetPy/</li>
+</ul>
+<p>本文仅做简要介绍，详情请阅读官方文档。</p>
+<h2 id="安装">安装</h2>
+<p>HinetPy 只支持Python 3.4 及以上的版本，不熟悉 Python 的用户建议直接安装 anaconda。</p>
+<p>安装 HinetPy 很简单:</p>
+<pre><code>pip install HinetPy</code></pre>
+<p>除此之外，还需要安装 Hi-net 提供的 win32tools。</p>
+<pre><code>tar -xvf win32tools.tar.gz
+cd win32tools/
+make
+cp catwin32.src/catwin32 win2sac.src/win2sac $HOME/bin/</code></pre>
+<h2 id="使用">使用</h2>
+<p>Python 以易读易用出名，HinetPy 也尽量做到易读易用。</p>
+<p>下面的示例展示了如何从Hi-net申请 2010-01-01T00:00 （日本时间，GMT+0900）开始的20分钟的连续波形数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> HinetPy <span class="keyword">import</span> Client, win32</div><div class="line"></div><div class="line"><span class="comment"># 根据你的 Hi-net 账户信息修改 username, password</span></div><div class="line">client = Client(<span class="string">"username"</span>, <span class="string">"password"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 开始申请数据</span></div><div class="line"><span class="comment"># '0101' 是 Hi-net 的代号</span></div><div class="line">data, ctable = client.get_waveform(<span class="string">'0101'</span>, <span class="string">'201001010000'</span>, <span class="number">20</span>)</div><div class="line"></div><div class="line"><span class="comment"># 等待数据的申请和下载，一般需要几分钟时间</span></div><div class="line"></div><div class="line"><span class="comment"># 下载完成会在当前目录下生成cnt格式的数据文件和channle table文件</span></div><div class="line"><span class="comment"># 0101_201001010000_20.cnt 0101_20100101.ch</span></div><div class="line"></div><div class="line"><span class="comment"># 将 cnt 数据转换为 SAC 格式</span></div><div class="line">win32.extract_sac(data, ctable)</div><div class="line"></div><div class="line"><span class="comment"># 从 channel table 中提取令极点信息并保存为 SAC PZ 格式</span></div><div class="line">win32.extract_pz(ctable)</div></pre></td></tr></table></figure>
+<p>搞定收工。</p>
+<p>更多功能及选项见官方文档。欢迎报BUG，也欢迎提Feature Request。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HinetPy 是一个用于从 NIED Hi-net 网站下载地震波形数据并进行数据格式转换的Python模块。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;项目主页： https://github.com/seisman/HinetPy&lt;/li&gt;
+&lt;li&gt;官方文档： https://sei
+    
+    </summary>
+    
+      <category term="地震学软件" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="Python" scheme="http://seisman.info/tags/Python/"/>
+    
+      <category term="Hinet" scheme="http://seisman.info/tags/Hinet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算任意深度处下表面反射波走时</title>
+    <link href="http://seisman.info/calculate-travel-time-of-deep-mantle-underside-reflection.html"/>
+    <id>http://seisman.info/calculate-travel-time-of-deep-mantle-underside-reflection.html</id>
+    <published>2017-03-30T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 <code>S410S</code>、<code>S660S</code>。 进一步推广到任意深度的下表面反射震相，比如 <code>S1000S</code> 代表在1000 km深度处的界面的下表面反射的S波，比如 <code>P1200P</code> 代表在1200 km深度处的界面的下表面反射的P波。</p>
+<p>下图给出了 <code>S660S</code> 也就是 <code>S^660S</code> 的射线路径，以便于非相关方向读者的理解。</p>
+<div class="figure">
+<img src="/images/20170331.png">
+
+</div>
+<p>本文介绍用 TauP 计算地幔下表面反射震相的走时。</p>
+<a id="more"></a>
+<p>使用 TauP 计算这类震相的走时时，有两点注意事项：</p>
+<ol style="list-style-type: decimal">
+<li>TauP 为了避免震相名的多义性，有自己的一套定义规则。比如地震学中所说的 <code>S410S</code>，在 TauP 中被称作 <code>S^410S</code>， 这里的 <code>^</code> 很形象地表示S波在410km间断面的下表面反射。详情见TauP官方文档。</li>
+<li>以 <code>S^410S</code> 为例，若速度模型的410界面的实际深度在408km，则TauP返回的实际上是 <code>S^408S</code> 的走时。这样的设计有好有坏，自行体会。</li>
+</ol>
+<p>下面以 PREM 模型下的 <code>S^1000S</code> 震相为例。</p>
+<p>直观的想法是:</p>
+<pre><code>$ taup_time -mod prem -h 400 -deg 150 -ph S^410S,S^600S,S^1000S
+
+Model: prem
+Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name      Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-------------------------------------------------------------------------------------
+  150.00   400.0   S^600S    2240.91    10.552     29.96    17.68   150.00   * S^670S
+  150.00   400.0   S^1000S   2240.91    10.552     29.96    17.68   150.00   * S^670S
+  150.00   400.0   S^410S    2325.64    10.758     30.61    18.03   150.00   * S^400S</code></pre>
+<p>算出来却发现 <code>S^1000S</code> 的走时与 <code>S^660S</code> 的走时完全相同，这显然是不对的。错误的原因在上面的注意事项2中已经解释了。</p>
+<p>错误的根本原因是因为PREM模型的1000 km处并没有速度间断面。解决办法很简单，在PREM模型的1000km处加一个速度间断面即可。</p>
+<p>第一步，复制标准速度模型:</p>
+<pre><code>cp /opt/TauP-2.4.2/StdModels/prem.nd prem1000.nd</code></pre>
+<p>第二步，在 prem1000.nd 模型的 1000 km 处加一个速度间断面。原速度模型的1000 km附近速度为:</p>
+<pre><code> 971.00    11.41560   6.37813   4.56307     743.0     312.0
+1071.00    11.57828   6.44232   4.62129     750.0     312.0</code></pre>
+<p>修改为:</p>
+<pre><code> 971.00    11.41560   6.37813   4.56307     743.0     312.0
+1000.00    11.46278   6.39674   4.57995     746.0     312.0
+1000.00    11.46279   6.39675   4.57996     746.0     312.0
+1071.00    11.57828   6.44232   4.62129     750.0     312.0</code></pre>
+<p>注意，这里在1000 km处加了两行，且两行的参数值有微小的区别。</p>
+<p>使用新模型计算的结果:</p>
+<pre><code>$ taup_time -mod prem1000 -h 400 -deg 150 -ph S^410S,S^600S,S^1000S
+
+Model: prem1000
+Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name      Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-------------------------------------------------------------------------------------
+  150.00   400.0   S^1000S   2162.67    10.203     28.88    17.08   150.00   = S^1000S
+  150.00   400.0   S^600S    2240.91    10.552     29.96    17.68   150.00   * S^670S
+  150.00   400.0   S^410S    2325.64    10.758     30.61    18.03   150.00   * S^400S</code></pre>
+<p>整个过程也很容易写脚本实现，这样就可以动态地实现计算任意深度处下表面反射震相的走时了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 &lt;code&gt;S410S&lt;/code&gt;、&lt;code&gt;S660S&lt;/code&gt;。 进一步推广到任意深度的下表面反射震相，比如 &lt;code&gt;S1000S&lt;/code&gt; 代表在1000 km深度处的界面的下表面反射的S波，比如 &lt;code&gt;P1200P&lt;/code&gt; 代表在1200 km深度处的界面的下表面反射的P波。&lt;/p&gt;
+&lt;p&gt;下图给出了 &lt;code&gt;S660S&lt;/code&gt; 也就是 &lt;code&gt;S^660S&lt;/code&gt; 的射线路径，以便于非相关方向读者的理解。&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;/images/20170331.png&quot; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;本文介绍用 TauP 计算地幔下表面反射震相的走时。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="地震学软件" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="走时" scheme="http://seisman.info/tags/%E8%B5%B0%E6%97%B6/"/>
+    
+      <category term="TauP" scheme="http://seisman.info/tags/TauP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>地震学中的坐标系</title>
+    <link href="http://seisman.info/coordinate-systems-in-seismology.html"/>
+    <id>http://seisman.info/coordinate-systems-in-seismology.html</id>
+    <published>2017-01-11T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>地震学中不同的作者定义了不同的坐标系，搞清楚各个坐标系的定义可以避免使用过程中出现错误。</p>
+<a id="more"></a>
+<h2 id="三分量波形数据坐标系">三分量波形数据坐标系</h2>
+<p>通常，地震仪记录的是ZNE方向的三分量波形数据。实际研究中，经常会需要旋转到ZRT坐标系或者LQT坐标系。下面介绍一下各个坐标系的定义。</p>
+<h3 id="nez坐标系">NEZ坐标系</h3>
+<p>NEZ 是最简单也是最常见的坐标系。</p>
+<ul>
+<li>N: 正北方向为正方向</li>
+<li>E: 正东方向为正方向</li>
+<li>Z: 垂直向上为正方向</li>
+</ul>
+<p>对于 Z 方向，可能存在向上为正还是向下为正的问题。SEED标准中规定垂直向上为正方向，详见 SEED Reference Manual v2.4 P68 中的说明。</p>
+<p>因而NEZ构成了一个左手坐标系。</p>
+<h3 id="rtz坐标系">RTZ坐标系</h3>
+<p>RTZ的定义如下：</p>
+<ul>
+<li>R: R方向定义为从震中位置沿着大圆路径指向台站的方向</li>
+<li>T: T方向垂直于R和Z方向所构成的平面，且选取的T轴正方向使得RTZ构成了左手坐标系</li>
+<li>Z: 垂直向上为正方向</li>
+</ul>
+<p>如图所示:</p>
+<div class="figure">
+<img src="http://service.iris.edu/media/webservicedoc/irisws/rotation/1/zrt.png">
+
+</div>
+<p>NEZ坐标系到RTZ坐标系的转换公式为</p>
+<p><span class="math inline">\(\begin{bmatrix}R\\T\end{bmatrix}\)</span> = <span class="math inline">\(\begin{bmatrix}\cos\alpha &amp; \sin\alpha \\-\sin\alpha &amp; \cos\alpha\end{bmatrix}\)</span><span class="math inline">\(\begin{bmatrix}N\\E\end{bmatrix}\)</span></p>
+<p>其中 <span class="math inline">\(\alpha\)</span> 是 R 方向与 N 方向的夹角，也就是反方位角加180度。</p>
+<h3 id="lqt坐标系">LQT坐标系</h3>
+<p>LQT坐标系的定义如下：</p>
+<ul>
+<li>L: P波偏振方向</li>
+<li>Q: SV波偏振方向</li>
+<li>T: SH波偏振方向，与 RTZ 坐标系中T的定义相同</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="center">垂直面视角</th>
+<th align="center">水平面视角</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="http://service.iris.edu/media/webservicedoc/irisws/rotation/1/lqt.png"></td>
+<td align="center"><img src="http://service.iris.edu/media/webservicedoc/irisws/rotation/1/lqt_map.png"></td>
+</tr>
+</tbody>
+</table>
+<p>可以先将NEZ坐标系转换为RTZ坐标系，再根据P波入射角将RZ两个方向旋转到LQ方向即可。当然也可以直接通过三维旋转将NEZ旋转到LQT坐标系。</p>
+<h2 id="地震矩张量张量坐标系">地震矩张量张量坐标系</h2>
+<p>地震矩张量是一个3X3的矩阵，通常写为</p>
+<p><span class="math inline">\(\begin{bmatrix} Mxx &amp; Mxy &amp; Mxz \\ Myx &amp; Myy &amp; Myz \\ Mzx &amp; Mzy &amp; Mzz \end{bmatrix}\)</span></p>
+<p>由于具有对称性，因而地震矩张量只有6个独立的量，即</p>
+<p><span class="math inline">\(\begin{bmatrix} Mxx &amp; Mxy &amp; Mxz \\ Mxy &amp; Myy &amp; Myz \\ Mxz &amp; Myz &amp; Mzz \end{bmatrix}\)</span></p>
+<p>有时候会将这6个量写成数组而不是矩阵的形式，通常顺序是这样的：</p>
+<pre><code>Mxx Myy Mzz Mxy Mxz Myz</code></pre>
+<p>在不同的坐标系下，XYZ分别代表不同的方向。</p>
+<h3 id="ned-坐标系">NED 坐标系</h3>
+<p>NED 坐标系在 Aki &amp; Richards (1980) 中有详细定义，即：</p>
+<ul>
+<li>X=North</li>
+<li>Y=East</li>
+<li>Z=Down</li>
+</ul>
+<p>如下图所示:</p>
+<div class="figure">
+<img src="/images/2014050103.jpg">
+
+</div>
+<h3 id="usertp-坐标系">USE/RTP 坐标系</h3>
+<p>USE 坐标系的定义为:</p>
+<ul>
+<li>X=Upper</li>
+<li>Y=South</li>
+<li>Z=East</li>
+</ul>
+<p>USE 坐标系还有很多别名，比如：</p>
+<ul>
+<li><p>GlobalCMT 所使用的坐标系称为RTP坐标系，RTP坐标系其实就是USE坐标系。</p>
+<ul>
+<li>X=R=Upper</li>
+<li>Y=T=South</li>
+<li>Z=P=East</li>
+</ul></li>
+<li>在GMT的psmeca中，RTP坐标系也称为RTF坐标系</li>
+<li><p>在Aki&amp;Richards(1980)中，RTP坐标系写作 <span class="math inline">\(r\Delta\phi\)</span> 坐标系</p></li>
+</ul>
+<p>Aki&amp;Richards (1980) P118 给出了USE/RTP坐标系与NED坐标系之间的转换关系：</p>
+<p><span class="math inline">\(\begin{bmatrix} Mrr &amp; Mrt &amp; Mrp \\ Mtr &amp; Mtt &amp; Mtp \\ Mpr &amp; Mpt &amp; Mpp \end{bmatrix}\)</span>=<span class="math inline">\(\begin{bmatrix} Mdd &amp; Mdn &amp; -Mde \\ Mnd &amp; Mnn &amp; -Mne \\ -Med &amp; -Men &amp; Mee \end{bmatrix}\)</span></p>
+<h2 id="参考">参考</h2>
+<ol style="list-style-type: decimal">
+<li>http://service.iris.edu/irisws/rotation/docs/1/help/</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;地震学中不同的作者定义了不同的坐标系，搞清楚各个坐标系的定义可以避免使用过程中出现错误。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="地震学基础" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="坐标系" scheme="http://seisman.info/tags/%E5%9D%90%E6%A0%87%E7%B3%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SOD 入门教程</title>
+    <link href="http://seisman.info/sod-notes.html"/>
+    <id>http://seisman.info/sod-notes.html</id>
+    <published>2016-12-23T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。</p>
+<ul>
+<li>官方网站： <a href="http://www.seis.sc.edu/sod/" class="uri" target="_blank" rel="external">http://www.seis.sc.edu/sod/</a></li>
+<li>源码： <a href="https://github.com/crotwell/sod" class="uri" target="_blank" rel="external">https://github.com/crotwell/sod</a></li>
+<li>源码语言： Java</li>
+<li>最新版本： 3.2.8</li>
+</ul>
+<p>本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。</p>
+<a id="more"></a>
+<h2 id="why-sod">Why SOD?</h2>
+<p>从 IRIS 上申请数据的工具有很多，比如 Wilber、BREQ_FAST，为什么要用 SOD 呢? SOD 有哪些优势呢？</p>
+<p>先回顾一下申请地震波形数据的一般流程：</p>
+<ol style="list-style-type: decimal">
+<li>获取完整的地震目录，并根据实际需求筛选出自己需要的地震目录</li>
+<li>获取台站列表，根据需求对震中距、方位角等进行筛选</li>
+<li>根据发震时刻、震中距、震相走时等信息确定要申请的波形数据的起始、结束时间</li>
+<li>申请数据</li>
+<li>下载数据</li>
+<li>数据解压以及预处理</li>
+</ol>
+<p>以上提到的每个步骤都需要用户写一个以上的脚本来实现，如果需求改变，则可能需要修改多个脚本，总的来说是件很麻烦的事情。</p>
+<p>SOD 的优势如下：</p>
+<ol style="list-style-type: decimal">
+<li>只需要一个配置文件（SOD中称为recipe）即可完成上面提到的全部步骤</li>
+<li>灵活的地震筛选规则：</li>
+</ol>
+<ul>
+<li>可以在 IRIS/USGS 提供的地震目录的基础上根据发震时刻、深度、震级、震源所在区域等条件进行筛选</li>
+<li>可以由用户自行提供地震目录（需要满足 SOD 对地震目录的格式要求）</li>
+<li>可以构建虚拟地震以申请连续波形数据</li>
+<li>…</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>灵活的台站筛选规则：</li>
+</ol>
+<ul>
+<li>可以选择一个或多个指定的台网、台站或通道</li>
+<li>可以筛选在某个特定点的特定距离、方位角、反方位角内的台站</li>
+<li>可以筛选某个区域内的台站</li>
+<li>可以下载指定通道的仪器响应文件（SAC PZ 和 RESP）</li>
+<li>…</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>灵活的波形筛选规则：</li>
+</ol>
+<ul>
+<li>仅下载震中距、方位角、反方位角满足条件的数据</li>
+<li>仅当某个震相存在时才下载该台站的数据（比如仅当震中距大于115时才有PKIKP震相）</li>
+<li>仅当地震与台站的连线中点位于某个区域是才下载数据（比如想要用PcP研究某个特定区域的核幔边界结构）</li>
+<li>仅当指定震相的前后多少秒内没有其他震相干扰时才下载数据</li>
+<li>灵活的时窗截取规则，可自动计算理论到时以设置数据窗</li>
+<li>可直接生成 BREQ_FAST 文件以通过邮件方式申请数据</li>
+<li>以 miniSEED、SAC、ASCII、wav 格式将数据保存到磁盘中</li>
+<li>…</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>数据并行下载，速度快无延迟</li>
+<li>将数据写入磁盘前/后，可对数据进行常见的数据预处理：</li>
+</ol>
+<ul>
+<li>rmean, rtrend, taper, merge</li>
+<li>decimate</li>
+<li>differentiate, integrate</li>
+<li>filter, transfer</li>
+<li>phaseCut</li>
+<li>…</li>
+</ul>
+<p>SOD 除了上面提到的功能/优点外，还有一个优点：入门很容易，别人写的 recipe 一看就懂，改起来也简单，但一个很明显的缺点是：自己从头写一个 recipe 很困难，因为 SOD 其实是个很复杂的东西。</p>
+<p>为了尽可能解决这个问题，我创建了 <a href="https://github.com/seisman/SODrecipes" target="_blank" rel="external">SODrecipes</a> 项目，其中收集整理了 SOD 的常见用法，用户可以通过阅读、修改和使用这些 recipe 片段来理解 SOD 的用法。也欢迎更多用户贡献自己的recipe。</p>
+<h2 id="安装-sod">安装 SOD</h2>
+<p>由于 SOD 是 Java 写的，因而可以跨平台直接使用。</p>
+<ol style="list-style-type: decimal">
+<li><p>下载:</p>
+<pre><code>$ wget http://www.seis.sc.edu/downloads/sod/3.2.8/sod-3.2.8.tgz</code></pre></li>
+<li><p>解压并安装</p>
+<pre><code>$ tar -xvf sod-3.2.8.tgz
+$ sudo mv sod-3.2.8 /usr/local</code></pre></li>
+<li><p>修改环境变量 PATH</p>
+<pre><code>$ echo &#39;export PATH=${PATH}:/usr/local/sod-3.2.8/bin&#39;&gt;&gt; ~/.bashrc</code></pre></li>
+<li><p>重启终端，并执行 <code>sod -h</code> 以确认 SOD 是否正常安装</p></li>
+</ol>
+<h2 id="sod-的使用">SOD 的使用</h2>
+<p>SOD 的 bin 目录下提供了8个命令：</p>
+<ul>
+<li>sod</li>
+<li>psod</li>
+<li>bgsod</li>
+<li>find_events</li>
+<li>find_stations</li>
+<li>find_channels</li>
+<li>find_responses</li>
+<li>find_seismograms</li>
+</ul>
+<p>本文只介绍命令 <code>sod</code> 的用法。</p>
+<h3 id="命令行语法">命令行语法</h3>
+<p>sod 的命令行语法很简单，直接</p>
+<pre><code>sod -f recipe.xml</code></pre>
+<p>其中 <code>recipe.xml</code> 是 sod 的配置文件。sod 的配置文件称为 recipe，是一个 xml 格式的纯文本文件，其中定义了地震数据筛选的一系列规则。</p>
+<h3 id="运行示例">运行示例</h3>
+<p>执行 <code>sod --demo -r &gt; demo.xml</code> 会生成一个名为 <code>demo.xml</code> 的 recipe 示例，用编辑器查看其内容以对 recipe 的结构和格式有个初步印象。</p>
+<p>执行以下命令则会运行该示例:</p>
+<pre><code>$ sod -f demo.xml
+Congratulations, valid recipe.
+Fiji region (-20.6, -177.7) 378 km 2003/01/04 05:15:03 UTC 6.5 mwc
+...
+Channel: II.AAK.00.BHE
+...
+Got 1 seismograms for II.RPN.00.BHN for eq on 2003/01/09 02:50:45 UTC
+...</code></pre>
+<p>输出中的 <code>Congratulations, valid recipe.</code> 表明当前 recipe 可以使用，紧接着会输出事件信息、通道信息以及获取地震波形的信息。下载的地震波形数据保存在 <code>seismograms</code> 目录下。</p>
+<h3 id="sod-数据库文件">SOD 数据库文件</h3>
+<p>每次执行 sod 时，sod 都会在当前目录下生成一个数据库文件夹 <code>SodDb</code> 以及一些 log 文件。数据库文件夹 <code>SodDb</code> 的数据库文件中包含了单次 sod 运行时的全部信息，比如选中了哪些事件、哪些台站以及事件台站对所对应的波形，也包含了哪些数据已经下载哪些数据尚未下载的信息。</p>
+<p>SOD 数据库的主要作用是：若 sod 在下载数据过程中意外退出，可以重新执行 sod 命令，由于 sod 数据库中记录了哪些数据已经被下载，因而 sod 可以继续下载那些尚未被下载的数据，即实现断点续传的功能（注：实测中发现的确可以断点续传，但似乎在所有数据下载完成后程序无法正常退出）。</p>
+<h2 id="recipe">recipe</h2>
+<p>一个 SOD recipe 中包含了一系列规则以限定要申请的数据的范围。</p>
+<h3 id="xml-格式简介">xml 格式简介</h3>
+<p>SOD recipe 本质上是一个 xml 格式的文本文件。</p>
+<p>XML 文档形成了一种“树”结构，它从“根部”开始，不断扩展到“枝叶”。一个简单的 XML 文件如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- this is a comment --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">child</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Child One<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>10<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">child</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Child Two<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>8<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">printline</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li><code>&lt;?xml version=&quot;1.0&quot;?&gt;</code> 是 XML 声明，其指定了 XML 的版本信息</li>
+<li><code>&lt;root&gt;</code> 和 <code>&lt;/root&gt;</code> 是一对标签的开始标签和关闭标签，从开始标签到结束标签中的内容称之为元素</li>
+<li>所有 XML 元素都必须有关闭标签</li>
+<li>标签可以嵌套多层，但必须正确地嵌套</li>
+<li>若某个标签中没有嵌套其他标签，则一对标签可以简写为 <code>&lt;tagName/&gt;</code> 的形式，例如 <code>&lt;printline/&gt;</code></li>
+<li><code>&lt;!-- --&gt;</code> 用于注释</li>
+<li>XML 标签是区分大小写的</li>
+</ul>
+<h3 id="sod-recipe-结构">sod recipe 结构</h3>
+<p>SOD recipe 是 XML 格式的文件，其根标签为 <code>&lt;sod&gt;</code>，根标签下有五个直系子标签，分别是：</p>
+<ul>
+<li><code>properties</code>: SOD程序相关的属性配置（一般不用）</li>
+<li><code>eventArm</code>: 事件筛选的规则</li>
+<li><code>networkArm</code>: 台站/通道筛选的规则</li>
+<li><code>waveformArm</code>: 确定波形的时间段，筛选、下载并处理波形数据</li>
+<li><code>waveformVectorArm</code>: 处理三分量波形数据（不常用）</li>
+</ul>
+<p>通常只需要用到 <code>eventArm</code>、<code>networkArm</code> 和 <code>waveformArm</code>。显然， <code>eventArm</code> 和 <code>networkArm</code> 是互相独立的，而 <code>waveformArm</code> 则依赖于 <code>eventArm</code> 和 <code>networkArm</code>。</p>
+<div class="figure">
+<img src="http://www.seis.sc.edu/sod/images/documentation/tutorials/arm_overview.png" alt="recipe结构">
+<p class="caption">recipe结构</p>
+</div>
+<p>因而，所有的 recipe 都符合如下基本结构：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line">&lt;sod&gt;</div><div class="line">    &lt;properties&gt;</div><div class="line">    &lt;!-- sod 属性，很少使用 --&gt;</div><div class="line">    &lt;/properties</div><div class="line"></div><div class="line">    &lt;eventArm&gt;</div><div class="line">    &lt;!-- eventArm 全部内容 --&gt;</div><div class="line">    &lt;/eventArm&gt;</div><div class="line"></div><div class="line">    &lt;networkArm&gt;</div><div class="line">    &lt;!-- networkArm 全部内容 --&gt;</div><div class="line">    &lt;/networkArm&gt;</div><div class="line"></div><div class="line">    &lt;waveformArm&gt;</div><div class="line">    &lt;!-- waveformArm 全部内容 --&gt;</div><div class="line">    &lt;/waveformArm&gt;</div><div class="line"></div><div class="line">    &lt;waveformVectorArm&gt;</div><div class="line">    &lt;!-- waveformVectorArm 全部内容 --&gt;</div><div class="line">    &lt;/waveformVectorArm&gt;</div><div class="line">&lt;/sod&gt;</div></pre></td></tr></table></figure>
+<p>下面会介绍 eventArm、networkArm 和 waveformArm 的写法和功能。</p>
+<h3 id="eventarm">eventArm</h3>
+<p>eventArm 的作用是定义一定的规则以筛选所需要的地震事件。</p>
+<p>下面看一个 eventArm 的简单示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">sod</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">eventArm</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">originTimeRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">startTime</span>&gt;</span>2010-01-01T00:00:00.000Z<span class="tag">&lt;/<span class="name">startTime</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">endTime</span>&gt;</span>2011-01-01T00:00:00.000Z<span class="tag">&lt;/<span class="name">endTime</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">originTimeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">min</span>&gt;</span>5.0<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">max</span>&gt;</span>8.5<span class="tag">&lt;/<span class="name">max</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">originDepthRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">unit</span>&gt;</span>KILOMETER<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">min</span>&gt;</span>30<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">originDepthRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">printlineEventProcess</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">CSVEventPrinter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filename</span>&gt;</span>events.csv<span class="tag">&lt;/<span class="name">filename</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">CSVEventPrinter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">eventArm</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sod</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在每个 Arm 内，SOD 会按照各个标签出现的先后顺序去执行相关操作。那么，如何去读一个recipe呢？其实很简单，由于整个XML文档是一个“树”结构，因而只要 <strong>一级一级读</strong> 即可。</p>
+<p>以上面的例子为例， eventArm 的下一级标签有三个，SOD 会按照三个标签出现的顺序依次执行。三个标签是：</p>
+<ul>
+<li><code>fdsnEvent</code> 的作用是从 USGS 的 FDSN web service 中获取全部地震目录</li>
+<li><code>printlineEventProcess</code> 输出地震目录中每个事件的信息</li>
+<li><code>CSVEventPrinter</code> 将事件信息保存到CSV文件中</li>
+</ul>
+<p>读完了这一级标签后，再读下一级标签：</p>
+<ul>
+<li><code>fdsnEvent</code> 的下一级标签有： <code>originTimeRange</code>、<code>magnitudeRange</code>、<code>originDepthRange</code>， 分别用于限制地震的发震事件、震级和发震时刻。</li>
+<li><code>CSVEventPrinter</code> 下一级标签 <code>filename</code> 则表明要将事件信息写到 <code>filename</code> 所指定的 CSV 文件中。</li>
+</ul>
+<p>eventArm 里可以放哪些标签？ <code>fdsnEvent</code> 标签里又可以嵌套哪些标签？这就是自己写 recipe 的难点，因为 SOD 的标签实在太多了。完整的标签列表在 <a href="http://www.seis.sc.edu/sod/ingredients/index.html" target="_blank" rel="external">Ingredient Listing</a> 中。</p>
+<h3 id="networkarm">networkArm</h3>
+<p>networkArm 用于筛选出需要的台站。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">sod</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">networkArm</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">fdsnStation</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">networkCode</span>&gt;</span>II<span class="tag">&lt;/<span class="name">networkCode</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">channelCode</span>&gt;</span>BH*<span class="tag">&lt;/<span class="name">channelCode</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">printlineChannelProcess</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">networkArm</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sod</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>解释一下：</p>
+<ul>
+<li><code>fdsnStation</code> 是从 IRIS 上获取了全部的台站信息</li>
+<li><code>networkCode</code> 从中筛选除了 II 台网</li>
+<li><code>channelCode</code> 从中进一步筛选除了 BH* 通道</li>
+</ul>
+<p>最终筛选出了 II 台网所有 BH* 通道。</p>
+<p>SOD中的Arm就像一个流水线，Arm中的每个标签就像一个质检员。首先获取所有的原材料，若材料满足标签所指定的条件，则进入流水线的下一步，否则会直接被丢弃。最终留下来的材料则是满足所有条件的材料。</p>
+<h3 id="waveformarm">waveformArm</h3>
+<p>在确定了地震事件和台站之后，就可以对二者进行组合，并进一步筛选所需要的波形数据。</p>
+<div class="figure">
+<img src="http://www.seis.sc.edu/sod/images/documentation/tutorials/waveform_arm.png" alt="waveformArm流程">
+<p class="caption">waveformArm流程</p>
+</div>
+<p>waveformArm 相对比较复杂，其包含了如下几个步骤（对应上图中的1-6）：</p>
+<ol style="list-style-type: decimal">
+<li>根据事件台站信息对震中距、方位角进行筛选</li>
+<li>根据地震发震时刻或者震相走时确定要申请的数据时间范围</li>
+<li>向数据服务器发送请求，检查对应时间段内是否有数据</li>
+<li>检查服务器的返回，确认是否存在数据</li>
+<li>从服务器中获取数据</li>
+<li>对数据进行预处理</li>
+</ol>
+<p>下面的示例展示了一个简单的 waveformArm:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">sod</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">eventArm</span>&gt;</span>eventArm同之前的示例，出于篇幅考虑，此处省略<span class="tag">&lt;/<span class="name">eventArm</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">networkArm</span>&gt;</span>networkArm同之前的示例，出于篇幅考虑，此处省略<span class="tag">&lt;/<span class="name">networkArm</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">waveformArm</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">distanceRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">unit</span>&gt;</span>DEGREE<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">min</span>&gt;</span>30<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">max</span>&gt;</span>90<span class="tag">&lt;/<span class="name">max</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">distanceRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">phaseRequest</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">model</span>&gt;</span>prem<span class="tag">&lt;/<span class="name">model</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">beginPhase</span>&gt;</span>ttp<span class="tag">&lt;/<span class="name">beginPhase</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">beginOffset</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">unit</span>&gt;</span>SECOND<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>-120<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">beginOffset</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">endPhase</span>&gt;</span>tts<span class="tag">&lt;/<span class="name">endPhase</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">endOffset</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">unit</span>&gt;</span>SECOND<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>360<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">endOffset</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">phaseRequest</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">fdsnDataSelect</span>/&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">printlineSeismogramProcess</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">rMean</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">rTrend</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">taper</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">sacWriter</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">waveformArm</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sod</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><code>distanceRange</code> 筛选出满足一定震中距的数据</li>
+<li><code>phaseRequest</code> 定义了数据时间窗，具体时间范围是P波到时前120秒，S波到时后360秒</li>
+<li><code>fdsnDataSelect</code> 表示从IRIS获取数据</li>
+<li><code>printlineSeismogramProcess</code> 打印获取的地震波形的信息</li>
+<li><code>rMean</code>、<code>rTrend</code> 、<code>taper</code> 数据预处理</li>
+<li><code>sacWriter</code> 以 SAC 格式将数据写入磁盘</li>
+</ul>
+<h3 id="高级用法技巧与陷阱">高级用法、技巧与陷阱</h3>
+<h4 id="eventarm-错误示例">eventArm 错误示例</h4>
+<p>上面的 eventArm 示例还有另一种等效的写法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">sod</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">eventArm</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">originTimeRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">startTime</span>&gt;</span>2010-05-19T00:00:00.000Z<span class="tag">&lt;/<span class="name">startTime</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">endTime</span>&gt;</span>2010-10-20T00:00:00.000Z<span class="tag">&lt;/<span class="name">endTime</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">originTimeRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">min</span>&gt;</span>5.0<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">max</span>&gt;</span>8.5<span class="tag">&lt;/<span class="name">max</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">originDepthRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">unit</span>&gt;</span>KILOMETER<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">min</span>&gt;</span>30<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">originDepthRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">printlineEventProcess</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">CSVEventPrinter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filename</span>&gt;</span>events.csv<span class="tag">&lt;/<span class="name">filename</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">CSVEventPrinter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">eventArm</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sod</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这种写法也是正确的，但是这种写法的速度却比前一种写法慢很多。其原因在于，SOD 在执行 <code>fdsnEvent</code> 时，前一种写法是获取了2010年、震级在5.0到8.5、深度大于30千米的地震，而后一种写法是先获取了2010年一整年的地震目录，然后筛选出其中震级在5.0到8.5范围内的地震，再筛选出深度大于30km的地震，虽然最终效果是一样的，但是后一种写法中 <code>fdsnEvent</code> 请求了更多的数据，因而速度更慢。</p>
+<h4 id="逻辑运算">逻辑运算</h4>
+<p>前面 eventArm 的示例已经在 <code>fdsnEvent</code> 中获取了2010年整年的震级在5.0到8.5、深度大于30km的地震。如果想要更复杂的筛选逻辑， <code>fdsnEvent</code> 就无法实现了，此时就需要用到 SOD 提供的逻辑运算功能。（ <code>fdsnEvent</code> 本质上是调用了 IRIS 或 USGS 提供的 web service 接口，因而其功能由 web service 所限制，而无法实现复杂的筛选逻辑，所以需要在执行 <code>fdsnEvent</code> 之后再由 SOD 对地震目录作进一步筛选）。</p>
+<p>比如在已有地震的基础上想要筛选出满足如下条件的地震事件：震级大于6级或者震级大于5级且深度在100到200千米之间。这一筛选条件写成一般的伪代码大概是这样：</p>
+<pre><code>if ((mag&gt;5 and 100&lt;depth&lt;200) or mag&gt;6.0):
+    pass
+else
+    fail</code></pre>
+<p>这一筛选条件可以写成以下recipe 片段并放在 <code>printlineEventProcess</code> 之前即可:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">originOR</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">originAND</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">min</span>&gt;</span>5<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">originDepthRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">unit</span>&gt;</span>KILOMETER<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">min</span>&gt;</span>100<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">max</span>&gt;</span>200<span class="tag">&lt;/<span class="name">max</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">originDepthRange</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">originAND</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">min</span>&gt;</span>6<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">magnitudeRange</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">originOR</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>不单单是 eventArm 中可以使用OR、AND、NOT逻辑运算，networkArm 中也有很多标签可以使用这些逻辑运算以实现灵活筛选的目的，比如想要获取两个台网的数据，其伪代码是：</p>
+<pre><code>if (network == IU or network == II)
+    pass
+else
+    fail</code></pre>
+<p>所以 recipe 片段可以写成：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">networkOR</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">networkCode</span>&gt;</span>II<span class="tag">&lt;/<span class="name">networkCode</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">networkCode</span>&gt;</span>IU<span class="tag">&lt;/<span class="name">networkCode</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">networkOR</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>而不能写成：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">networkAND</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">networkCode</span>&gt;</span>II<span class="tag">&lt;/<span class="name">networkCode</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">networkCode</span>&gt;</span>IU<span class="tag">&lt;/<span class="name">networkCode</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">networkAND</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="从头开始写-recipe">从头开始写 recipe</h2>
+<p>SOD 具有高度可订制性的优点，同时也导致写 recipe 变得很困难，这一节说一说如何去读 SOD 官方文档。</p>
+<p>如之前所说，一个 SOD recipe 包含了 eventArm、networkArm 和 waveformArm，文件结构如下所示:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">sod</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">eventArm</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- eventArm 全部内容 --&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">eventArm</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">networkArm</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- networkArm 全部内容 --&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">networkArm</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">waveformArm</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- waveformArm 全部内容 --&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">waveformArm</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sod</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>写 recipe 的关键在于搞清楚每个 Arm 中可以放哪些标签，各个标签的先后顺序又怎样？这就需要查询 SOD 的 <a href="http://www.seis.sc.edu/sod/ingredients/index.html" target="_blank" rel="external">Ingredient Listing</a>。</p>
+<p>以 eventArm 为例，解释一下如何读 SOD 的文档。</p>
+<p>首先，进入 <a href="http://www.seis.sc.edu/sod/ingredients/eventArm.html" target="_blank" rel="external">eventArm</a> 文档页面，可以看到：</p>
+<ul>
+<li>eventArm 的功能说明</li>
+<li>Example 中给出了 eventArm 的简单示例</li>
+<li>This consists of 表明 eventArm 中可以包含两部分内容，分别是是 eventSource 和 origin，其中前者必须至少出现一次（At least once），后者可以出现任意多次（Any number of times）</li>
+<li>Places this can be found 表明 eventArm 只能直接出现在 sod 标签下</li>
+</ul>
+<p>需要注意的是， <code>eventSource</code> 和 <code>origin</code> 两边没有尖括号 <code>&lt; &gt;</code>，所以这两个 <strong>都不是标签</strong> ，可以将这两个理解为 <strong>标签集</strong> 。</p>
+<p>进入 <a href="http://www.seis.sc.edu/sod/ingredients/eventSource.html" target="_blank" rel="external">eventSource</a> 文档页面，可知 eventSource 中是用来获取地震事件的标签集，其包含了如下几个标签：</p>
+<ul>
+<li><code>backwardsEventFinder</code></li>
+<li><code>CSVEventSource</code></li>
+<li><code>delayedEventSource</code></li>
+<li><code>eventFinder</code></li>
+<li><code>fdsnEvent</code></li>
+<li><code>nowFakeEventSource</code></li>
+<li><code>periodicFakeEventSource</code></li>
+</ul>
+<p>这里我们看到了前面示例用到的 <code>fdsnEvent</code> 。再进入 <a href="http://www.seis.sc.edu/sod/ingredients/fdsnEvent.html" target="_blank" rel="external">fdsnEvent</a> 文档页面，可知 <code>fdsnEvent</code> 会从USGS网站中获取地震目录。 <code>fdsnEvent</code> 中包含了很多标签以对事件进行筛选，比如示例中用到的 <code>originTimeRange</code> 、<code>magnitudeRange</code> 、<code>originDepthRange</code> ，以及示例中不曾用到的 <code>boxArea</code> 、 <code>pointDistance</code> 等标签。</p>
+<p>再到标签 <code>originTimeRange</code> 、<code>magnitudeRange</code> 、<code>originDepthRange</code> 的文档页面看一看，就很容易把 eventArm 的 eventSource 部分 recipe 片段写出来了，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">sod</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">eventArm</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">originTimeRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">startTime</span>&gt;</span>2010-01-01T00:00:00.000Z<span class="tag">&lt;/<span class="name">startTime</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">endTime</span>&gt;</span>2011-01-01T00:00:00.000Z<span class="tag">&lt;/<span class="name">endTime</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">originTimeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">min</span>&gt;</span>5.0<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">max</span>&gt;</span>8.5<span class="tag">&lt;/<span class="name">max</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">originDepthRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">unit</span>&gt;</span>KILOMETER<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">min</span>&gt;</span>30<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">originDepthRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">eventArm</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sod</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>写完了 eventSource 部分，再看看 origin 部分。进入 <a href="http://www.seis.sc.edu/sod/ingredients/origin.html" target="_blank" rel="external">origin</a> 的文档页面，可以看到其包含的一堆标签，比如：</p>
+<ul>
+<li><code>CSVEventPrinter</code> 把事件以CSV格式保存到磁盘中</li>
+<li><code>eventArea</code> 筛选出某个规则区域的事件</li>
+<li><code>eventPolygonFile</code> 筛选出某个多边形内的事件</li>
+<li><code>printlineEventProcess</code> 终端打印出筛选出来的事件信息</li>
+</ul>
+<p>再把文档一级一级看下去，即可写出本文最开始所展示的示例片段，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">sod</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">eventArm</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">originTimeRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">startTime</span>&gt;</span>2010-01-01T00:00:00.000Z<span class="tag">&lt;/<span class="name">startTime</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">endTime</span>&gt;</span>2011-01-01T00:00:00.000Z<span class="tag">&lt;/<span class="name">endTime</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">originTimeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">min</span>&gt;</span>5.0<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">max</span>&gt;</span>8.5<span class="tag">&lt;/<span class="name">max</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">magnitudeRange</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">originDepthRange</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">unit</span>&gt;</span>KILOMETER<span class="tag">&lt;/<span class="name">unit</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">min</span>&gt;</span>30<span class="tag">&lt;/<span class="name">min</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">originDepthRange</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">fdsnEvent</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">printlineEventProcess</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">CSVEventPrinter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filename</span>&gt;</span>events.csv<span class="tag">&lt;/<span class="name">filename</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">CSVEventPrinter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">eventArm</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sod</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>总结一下，SOD中标签很多，但由于整个 recipe 是树形结构，所以只要一级一级不断看文档，就可以定制出自己所需的任意功能的 recipe 了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站： &lt;a href=&quot;http://www.seis.sc.edu/sod/&quot; class=&quot;uri&quot;&gt;http://www.seis.sc.edu/sod/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码： &lt;a href=&quot;https://github.com/crotwell/sod&quot; class=&quot;uri&quot;&gt;https://github.com/crotwell/sod&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码语言： Java&lt;/li&gt;
+&lt;li&gt;最新版本： 3.2.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="地震学软件" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="IRIS" scheme="http://seisman.info/tags/IRIS/"/>
+    
+      <category term="数据申请" scheme="http://seisman.info/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/"/>
+    
+      <category term="波形数据" scheme="http://seisman.info/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件管理与备份</title>
+    <link href="http://seisman.info/file-organization.html"/>
+    <id>http://seisman.info/file-organization.html</id>
+    <published>2016-08-23T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文将介绍我如何管理我的电脑中的文件，包括如何组织文件夹以及如何备份。</p>
+<a id="more"></a>
+<h2 id="背景介绍">背景介绍</h2>
+<p>我目前使用的计算机有两台：</p>
+<ol style="list-style-type: decimal">
+<li>DELL台式机：安装 CentOS 7 系统，仅用于科研工作；</li>
+<li>MacBook Pro：大部分时间用于日常使用，偶尔用于简单的科研；</li>
+</ol>
+<h2 id="组织文件与文件夹">组织文件与文件夹</h2>
+<p>Linux 机器完全用于工作， <code>$HOME</code> 目录下的目录结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">|-- backup</div><div class="line">|-- bin</div><div class="line">|-- Datas</div><div class="line">|-- Desktop</div><div class="line">|-- Downloads</div><div class="line">|-- Nutstore</div><div class="line">|-- Script</div><div class="line">|-- Src</div><div class="line">`-- src.import</div></pre></td></tr></table></figure>
+<p>下面一一解释一下每个目录的作用。</p>
+<h3 id="bin">bin</h3>
+<p>在 <code>$HOME</code> 下建了一个 <code>bin</code> 目录，并将该目录路径加入到 <code>$PATH</code> 中。</p>
+<p><code>bin</code> 目录用于放置一些简单的二进制文件以及脚本，使得在命令行中可以直接调用它们。</p>
+<p>简单列几个我的 <code>bin</code> 目录下的文件：</p>
+<ul>
+<li><code>backup.pl</code>: 自己写的一个数据备份脚本，自动备份全盘数据</li>
+<li><code>cpdf</code>: 一个PDF分隔、合并工具，从官网下载的软件包中有用的东西只有这一个二进制文件，所以就放在 <code>bin</code> 目录下</li>
+<li><code>distaz</code>: 计算震中距和方位角的小程序</li>
+<li><code>matlab</code>: 指向 matlab 命令的软链接</li>
+<li><code>mseed2sac</code>: 将 miniSEED 转换为 SAC 的小程序</li>
+<li><code>rdseed</code>: 将 SEED 转换成 SAC 的小程序</li>
+<li><code>wlt.py</code>: 自动登陆科大网络通的脚本</li>
+</ul>
+<p>哪些文件或脚本可以放在 <code>bin</code> 目录下呢，我自己设立的原则如下：</p>
+<ol style="list-style-type: decimal">
+<li>如果一个软件包只提供了一个二进制文件，并且这个二进制文件可直接运行，而不依赖于其他辅助文件，比如 <code>distaz</code>、<code>rdseed</code> 等都满足这一点</li>
+<li>如果一个命令可以很好地完成某一类特定的功能而不需要对源码做任何改动，比如 <code>rdseed</code> 之类</li>
+<li>如果一个命令只能实现某个特定目的，并且无论如何修改不会对任何项目产生影响，比如我自己写的 <code>backup.pl</code> 和 <code>wlt.py</code></li>
+<li>如果一个软件提供了一堆命令，但实际上真正用到的只有其中一个，比如 matlab，此时当然可以把 matlab 的路径加到 <code>$PATH</code> 中，也可以在 <code>bin</code> 目录下建一个指向命令的软链接</li>
+</ol>
+<h3 id="datas">Datas</h3>
+<p>该目录主要用于保存一些基本不会改动的数据文件，比如：</p>
+<ul>
+<li><code>GEBCO</code>: 全球地形数据文件</li>
+<li><code>USArray</code>: 科研过程中下载的 USArray 的 SEED 格式的波形数据，放在这里相当于备份</li>
+<li><code>GFlib</code>: 格林函数库</li>
+<li><code>China_Adm</code>: 中国国界数据</li>
+</ul>
+<h3 id="src.import">src.import</h3>
+<p>该目录用于放置从网络获取的他人写的软件包的源码。比如 pssac、fk、gcap 的源码都放这里。</p>
+<h3 id="src">Src</h3>
+<p>该目录用于放置自己写的具有 <strong>通用性</strong> 的代码包，比如：</p>
+<ul>
+<li><code>FD2D-SH</code>: 二维SH波有限差分波场模拟代码</li>
+<li><code>FD2D-PSV</code>: 二维P-SV波有限差分波场模拟代码</li>
+<li><code>FD3D</code>: 三维有限差分波场模拟代码</li>
+<li><code>sac_tools</code>: SAC 相关工具</li>
+</ul>
+<h3 id="script">Script</h3>
+<p>该目录用于放置自己写的具有 <strong>通用性</strong> 的脚本：</p>
+<ul>
+<li><code>HinetScripts</code>: 用于申请、下载、处理Hinet数据的 Python 脚本</li>
+<li><code>FnetScript</code>: 用于从Fnet下载数据的脚本</li>
+<li><code>irisScript</code>: 从IRIS获取数据的相关脚本</li>
+<li><code>SodScript</code>: 使用SOD获取数据的相关脚本</li>
+<li><code>TauPy</code>: 自己写的射线走时计算代码</li>
+</ul>
+<h3 id="backup">backup</h3>
+<p>该目录下主要用于放置从网站上下载的软件包的压缩包，比如SAC、GMT、TauP等的软件包。</p>
+<p>该目录与 <code>src.import</code> 的主要区别在于， <code>src.import</code> 目录中包含的是解压后的源码，且可能自己会对其进行修改；而 <code>backup</code> 目录中包含的是软件包的原始压缩包，与从官方网站上下到的代码一模一样，以便于自己搞乱 <code>src.import</code> 里的代码之后重新开始。同时，也相当于是一个软件包的备份。</p>
+<h3 id="desktop">Desktop</h3>
+<p><code>Desktop</code> 是我日常工作的地方，放置当前在做的科研项目。比如，该目录下有这几个文件夹：</p>
+<ul>
+<li><code>MyProject1</code>：第一个科研项目的根目录。与该项目所有的所有的数据、脚本、源码、图片、报告等都在这个目录下。</li>
+<li><code>MyProject2</code>：第二个科研项目的根目录。同理。</li>
+<li><code>MyProject3</code>：第n个科研项目的根目录。</li>
+<li><code>workspace</code>：日常科研中，经常需要做一些测试，该目录用于进行临时的测试。我的目录下包括了 Perl、Python、SAC、GMT、TauP等目录。比如某个Perl语法忘了，我会到Perl目录下临时写个小脚本测试一下语法对不对；比如对SAC某个命令的功能不太确定，我会在SAC目录下临时生成几个SAC文件然后做个测试。在专门的目录下做一些测试，一方面可以避免由于写了临时文件而搞乱自己的科研目录，另一方面在删除临时文件时可以方向删而不必担心删除了其他重要的文件。</li>
+</ul>
+<h3 id="downloads">Downloads</h3>
+<p>这是浏览器下载的默认目录。该目录仅作为临时存放文件的地方。每隔几天都需要将下载的文章、软件包、图片等等放在该放的地方。</p>
+<h3 id="nutstore">Nutstore</h3>
+<p>坚果云同步目录。坚果云会自动将将该目录下的所有文件在我的两台电脑之间同步。</p>
+<h3 id="opt">/opt/</h3>
+<p>我倾向于将一些比较大的软件装在 <code>/opt/</code> 目录而不是 <code>/usr/local/</code> 目录下。比如 SAC、GMT、TauP、Matlab 这些都装在该目录下。</p>
+<h2 id="硬盘备份">硬盘备份</h2>
+<p>文件备份非常重要。备份主要是为了解决两个常见问题：</p>
+<ol style="list-style-type: decimal">
+<li>磁盘损坏</li>
+<li>误删文件</li>
+</ol>
+<p>因而建议，至少每周将工作电脑中的文件备份到移动硬盘中。推荐使用 <code>rsync</code> 进行备份，其用法为:</p>
+<pre><code>rsync --delete -av /home/seisman/bin /data1/seisman/</code></pre>
+<p>该命令作用是将 <code>/home/seisman/bin</code> 目录完整同步到 <code>/data1/seisman/</code> 目录下。</p>
+<p><code>rsync</code> 的特色在于增量备份。这意味着只有第一次备份的时候需要花比较多的时间，以后再使用该命令进行备份时只会同步改动。加入你一周只修改了一个文件，那么同步的过程会在瞬间完成。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文将介绍我如何管理我的电脑中的文件，包括如何组织文件夹以及如何备份。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="胡言乱语" scheme="http://seisman.info/categories/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Web Services 获取地震数据</title>
+    <link href="http://seisman.info/web-service-clients.html"/>
+    <id>http://seisman.info/web-service-clients.html</id>
+    <published>2016-08-13T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>地震数据通常包含三类：地震目录、台站信息、波形数据。当然，还有一些其他的地震数据，比如震源机制等等。</p>
+<p>世界上最大的地震数据中心是 IRIS DMC。除了 IRIS DMC 之外，还有很多稍微小一些的地震数据中心。不管是 IRIS DMC 还是其他的小型地震数据中心，通常都提供了多种工具以供用户获取地震数据。这些工具千差万别，每遇到一个新的地震数据中心，可能就得学一套新的数据获取工具，给用户带来了极大的麻烦。</p>
+<p>幸运的是，FDSN 定义了通用的 <a href="http://www.fdsn.org/webservices/" target="_blank" rel="external">FDSN Web Services 规范</a>，并不断被多个地震数据中心所采用，使得用户只需要学习一套工具即可从多个地震数据中心下载地震数据。</p>
+<p>FDSN Web Service 规定了三类服务的规范：</p>
+<ul>
+<li><code>station</code>: 获取台站信息</li>
+<li><code>dataselect</code>: 获取波形数据</li>
+<li><code>event</code>: 获取地震目录</li>
+</ul>
+<p>简单的说，Web Services 是一套规范，用户通过向数据中心发送特定的网页请求来获取数据。这一套规范由于其通用性而被越来越多的地震数据中心所采用。因而学会了 Web Services 工具，就可以只用一套工具从不同的数据中心申请数据。</p>
+<p>IRIS DMC 就实现了这一套 Web Services，并且给出了详细的解释与示例，适合作为 Web Services 的学习教程：</p>
+<ul>
+<li><a href="http://service.iris.edu/fdsnws/station/1/" target="_blank" rel="external">IRIS station</a></li>
+<li><a href="http://service.iris.edu/fdsnws/dataselect/1/" target="_blank" rel="external">IRIS dataselect</a></li>
+<li><a href="http://service.iris.edu/fdsnws/event/1/" target="_blank" rel="external">IRIS event</a></li>
+</ul>
+<p>用户可以根据 Web Services 规范构建一个网址，然后复制到浏览器的地址栏即可完成数据的申请。显然，这种方式不适合批量申请数据。很多工具对 Web Services 做了封装，提供了更加简便的数据获取方式。</p>
+<p>下面列出了一些基于 Web Services 的地震数据获取工具：</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts" target="_blank" rel="external">ws-fetch-scripts</a>: Perl写的命令行工具</li>
+<li><a href="http://www.seis.sc.edu/sod/" target="_blank" rel="external">SOD</a>: Java写的命令行数据获取工具</li>
+<li><a href="http://ds.iris.edu/ds/nodes/dmc/software/downloads/irisFetch.m/" target="_blank" rel="external">irisFetch.m</a>: Matlab函数库</li>
+<li><a href="http://ds.iris.edu/ds/nodes/dmc/software/downloads/JWEED/" target="_blank" rel="external">JWEED</a>: Java写的GUI数据获取工具</li>
+<li><a href="http://ds.iris.edu/ds/nodes/dmc/software/downloads/iris-ws/" target="_blank" rel="external">IRIS-WS</a>: Java API</li>
+</ol>
+<p>下面列出了几个地震数据处理工具，这几个工具实现了 Web Services 的功能，因而也可以用于获取地震数据：</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://www.obspy.org/" target="_blank" rel="external">ObsPy</a>: Python写的地震数据处理工具</li>
+<li><a href="https://github.com/jpjones76/SeisIO.jl" target="_blank" rel="external">SeisIO.jl</a>: Julia写的地震数据处理工具</li>
+<li><a href="http://geoscience-community-codes.github.io/GISMO/" target="_blank" rel="external">GISMO</a>: Matlab写的地震数据处理工具</li>
+</ol>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.fdsn.org/webservices/" target="_blank" rel="external">FDSN Web Services</a></li>
+<li><a href="http://www.fdsn.org/webservices/datacenters/" target="_blank" rel="external">支持 Web Services 的地震数据中心</a></li>
+<li><a href="https://service.iris.edu/" target="_blank" rel="external">IRIS Web Services</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;地震数据通常包含三类：地震目录、台站信息、波形数据。当然，还有一些其他的地震数据，比如震源机制等等。&lt;/p&gt;
+&lt;p&gt;世界上最大的地震数据中心是 IRIS DMC。除了 IRIS DMC 之外，还有很多稍微小一些的地震数据中心。不管是 IRIS DMC 还是其他的小型地震数据
+    
+    </summary>
+    
+      <category term="地震学软件" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="IRIS" scheme="http://seisman.info/tags/IRIS/"/>
+    
+      <category term="波形数据" scheme="http://seisman.info/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SAC 文件读写模块 sacio_Fortran</title>
+    <link href="http://seisman.info/sacio-for-fortran90.html"/>
+    <id>http://seisman.info/sacio-for-fortran90.html</id>
+    <published>2016-07-18T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>sacio_Fortran 是一个用 Fortran 90 写的 SAC 读写模块。在自己的程序中调用该模块，即可实现 SAC 二进制文件的读写。</p>
+<p>项目主页： <a href="http://wangliang1989.github.io/sacio_Fortran/" class="uri" target="_blank" rel="external">http://wangliang1989.github.io/sacio_Fortran/</a></p>
+<h2 id="文件列表">文件列表</h2>
+<p>下载后，有如下文件:</p>
+<ol style="list-style-type: decimal">
+<li><code>sacio.f90</code>： sacio模块的源代码 (此文件是唯一真正需要的文件!)</li>
+<li><code>README.md</code>： 说明文件</li>
+<li><code>test/</code>：示例文件，展示如何在自己的程序中调用 sacio 模块内的子程序</li>
+</ol>
+<h2 id="编译与链接">编译与链接</h2>
+<p>以 <code>gfortran</code> 为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gfortran -c sacio.f90</div><div class="line">$ gfortran -c your_program.f90</div><div class="line">$ gfortran your_program.o sacio.o -o your_program</div></pre></td></tr></table></figure>
+<h2 id="各个子程序的使用">各个子程序的使用</h2>
+<p>模块中包含了 6 个子程序:</p>
+<ol style="list-style-type: decimal">
+<li><code>sacio_readhead</code>: 仅读取SAC文件头段</li>
+<li><code>sacio_readsac</code>: 读取SAC文件</li>
+<li><code>sacio_writesac</code>: 写SAC文件</li>
+<li><code>sacio_readsac_cut</code>: 带 cut 选项的读取SAC文件</li>
+<li><code>sacio_nullhead</code>: 修改 SAC 文件头段变量为 undef</li>
+<li><code>sacio_newhead</code>: 生成一个空数据的 SAC 头段</li>
+</ol>
+<p>要使用哪个子程序，按照Fortran 90一般的方式即可调用。至于如何调用，请参考对应的例子程序文件，没有比例子更好的讲解。</p>
+<h2 id="协议和其他">协议和其他</h2>
+<p>sacio_Fortran 是<a href="https://wangliang1989.github.io/" target="_blank" rel="external">我</a>和 SeisMan 在 2015 年 9 月一起写的，当时就在网上公开了。今借 SeisMan 这块宝地写一个简短的介绍，希望这个程序能被更多的人使用。本程序目前是按照 <a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank" rel="external">Apache 开源协议</a>发布的。如果你只是使用，或者为了适应自己的需要修改，只要不涉及再分发，你不需要太在意协议的问题，但是当要将这个程序给别人时，或者修改后给别人时，你应该注意遵循协议的内容。无论你如何使用本程序，我们都不寻求任何回报，当然也不对任何可能造成的损失负责。如果你发现程序有问题，欢迎告诉我们。如果你贡献大，我们会把你列为作者(贡献大不大完全由我们来确定)。</p>
+<h2 id="修订历史">修订历史</h2>
+<ul>
+<li>2016-07-19：王亮 原稿；</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;sacio_Fortran 是一个用 Fortran 90 写的 SAC 读写模块。在自己的程序中调用该模块，即可实现 SAC 二进制文件的读写。&lt;/p&gt;
+&lt;p&gt;项目主页： &lt;a href=&quot;http://wangliang1989.github.io/sacio_Fort
+    
+    </summary>
+    
+      <category term="SAC" scheme="http://seisman.info/categories/SAC/"/>
+    
+    
+      <category term="Fortran" scheme="http://seisman.info/tags/Fortran/"/>
+    
+      <category term="SAC技巧" scheme="http://seisman.info/tags/SAC%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>地学学术期刊</title>
+    <link href="http://seisman.info/journals.html"/>
+    <id>http://seisman.info/journals.html</id>
+    <published>2016-07-03T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>想要追踪前沿进展，就需要看期刊上最新发表的文章。可以使用邮件或者RSS订阅的方式获取期刊的更新。本文列出了我订阅的期刊。</p>
+<p>Wiley、Oxford、ScienceDirect和GeoScienceWorld算是期刊合集，每一个都包含了很多地学期刊，所以注册这几个网站就可以囊括地学的大部分期刊了。除此之外，Nature、Science和PNAS需要单独注册。</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://onlinelibrary.wiley.com/" target="_blank" rel="external">Wiley Online Library</a>
+<ul>
+<li>Chinese Journal of Geophysics</li>
+<li>Earth and Space Science</li>
+<li>Geophysical Research Letters</li>
+<li>Geophysical Prospecting</li>
+<li>Geochemistry, Geophysics, Geosystems</li>
+<li>Journal of Geophysical Research: Solid Earth</li>
+<li>Journal of Geophysical Research: Oceans</li>
+<li>Journal of Geophysical Research: Planets</li>
+<li>Reviews of Geophysics</li>
+<li>Tectonics</li>
+</ul></li>
+<li><a href="https://academic.oup.com/" target="_blank" rel="external">Oxford Academic</a>
+<ul>
+<li>Geophysical Journal International</li>
+</ul></li>
+<li><a href="http://www.sciencedirect.com/" target="_blank" rel="external">ScienceDirect</a>
+<ul>
+<li>Computer &amp; Geophysics</li>
+<li>Earth and Planetary Science Letters</li>
+<li>Geodesy and Geodynamics</li>
+<li>Geoscience Frontiers</li>
+<li>Gondwana Research</li>
+<li>Journal of Applied Geophysics</li>
+<li>Journal of Asian Earth Sciences</li>
+<li>Journal of Geodynamics</li>
+<li>Journal of South American Earth Science</li>
+<li>Planetary and Space Sciences</li>
+<li>Physics of the Earth and Planetary Interiors</li>
+<li>Lithos</li>
+<li>Tectonophysics</li>
+</ul></li>
+<li><a href="http://geoscienceworld.org/" target="_blank" rel="external">GeoScienceWorld</a>
+<ul>
+<li>Bulletin of the Seismological Society of America</li>
+<li>Canadian Journal of Earth Sciences</li>
+<li>Geophysics</li>
+<li>Lithosphere</li>
+<li>Seismological Research Letters</li>
+<li>The Leading Edge</li>
+</ul></li>
+<li>Others
+<ul>
+<li><a href="http://www.nature.com/" target="_blank" rel="external">Nature</a>: Nature, Nature Geoscience, Nature Communication, Scientific Reports</li>
+<li><a href="http://www.sciencemag.org/" target="_blank" rel="external">Science</a>: Science, Science Advances</li>
+<li><a href="http://www.pnas.org/" target="_blank" rel="external">PNAS</a>:</li>
+<li><a href="http://www.annualreviews.org/journal/earth" target="_blank" rel="external">Annual Review of Earth and Planetary Sciences</a>: 一年出一期的专门出 Review 的期刊</li>
+</ul></li>
+<li>Google Scholar 关键词邮件订阅</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想要追踪前沿进展，就需要看期刊上最新发表的文章。可以使用邮件或者RSS订阅的方式获取期刊的更新。本文列出了我订阅的期刊。&lt;/p&gt;
+&lt;p&gt;Wiley、Oxford、ScienceDirect和GeoScienceWorld算是期刊合集，每一个都包含了很多地学期刊，所以注册这几
+    
+    </summary>
+    
+      <category term="胡言乱语" scheme="http://seisman.info/categories/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>构建GMT数据库</title>
+    <link href="http://seisman.info/gmt-setup-database.html"/>
+    <id>http://seisman.info/gmt-setup-database.html</id>
+    <published>2016-06-03T07:37:13.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用GMT绘图时，经常会用到某些数据。比如全球地形起伏数据、符合中国国情的 国界线数据、中国地质构造分界线数据，等等。这些数据有一个共同的特点：固定性。即 这些数据几乎不需要改动就可以直接使用。对于全球地形起伏数据而言，还有另一个特点， 就是数据量巨大，一个地形数据可能需要几百MB，甚至几个GB。</p>
+<p>绘图时要使用这些数据，通常来说有两种办法：</p>
+<ol>
+<li>将数据复制到绘图脚本所在目录，在命令中直接指定该数据的文件名</li>
+<li>将数据放在系统中某个特定的目录，在命令中指定该数据的绝对路径</li>
+</ol>
+<p>显然，以上两种方法都有其局限性。第一种方法会造成数据冗余，而且将这么大的数据 复制来复制去也不方便。第二种方法，绝对路径通常都比较长，写起来麻烦而且万一 路径变了所有脚本都要修改，很麻烦。</p>
+<p>要是能像 Linux 那样通过修改 <code>PATH</code> 环境变量让系统搜索某个路径就好了。其实 GMT 提供了这个功能。</p>
+<p>从原理上说，当GMT在命令中遇到某个文件时，首先会在当前目录下寻找该文件，如果找不到， 则会到环境变量 <code>GMT_DATADIR</code> 中寻找。若环境变量 <code>GMT_DATADIR</code> 未定义，则使用 默认值（Linux下 <code>~/.gmt/</code>）。</p>
+<p>因而，最简单的做法就是把所有的地形数据、国界数据等等，都放在 <code>~/.gmt</code> 目录下， 构成一个自己的GMT数据库。此时，在GMT命令中直接使用文件名即可，既不需要将数据 复制到当前目录，也不需要指定长长的绝对路径。</p>
+<p>如果不想把数据放在 <code>~/.gmt</code> 下，而是想放在自己指定的某个目录下，直接修改环境 变量即可。在 <code>~/.bashrc</code> 中加入：</p>
+<pre><code>export GMT_DATADIR=/path/to/my/gmt/database</code></pre>
+<p>如果喜欢将不同的数据分类放在不同的目录下也可以，都 <code>:</code> 分隔多个目录即可，例如：</p>
+<pre><code>export GMT_DATADIR=/path/to/my/coast:/path/to/my/boundary</code></pre>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用GMT绘图时，经常会用到某些数据。比如全球地形起伏数据、符合中国国情的 国界线数据、中国地质构造分界线数据，等等。这些数据有一个共同的特点：固定性。即 这些数据几乎不需要改动就可以直接使用。对于全球地形起伏数据而言，还有另一个特点， 就是数据量巨大，一个地形数据可能需
+    
+    </summary>
+    
+      <category term="GMT" scheme="http://seisman.info/categories/GMT/"/>
+    
+    
+      <category term="GMT技巧" scheme="http://seisman.info/tags/GMT%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IRIS 的理论地震图生成引擎</title>
+    <link href="http://seisman.info/iris-syngine.html"/>
+    <id>http://seisman.info/iris-syngine.html</id>
+    <published>2016-05-26T04:41:18.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，还需要足够的 计算机资源以及计算时间。</p>
+<p>IRIS 的 Syngine 服务使用 <a href="http://seis.earth.ox.ac.uk/axisem/" target="_blank" rel="external">AxiSEM</a> 计算得到 格林函数，并使用 <a href="http://www.instaseis.net/index.html" target="_blank" rel="external">Instaseis</a> 得到理论地震图。 该服务提供了 PREM、AK135、iasp91 等多个模型下高达 1 Hz 的理论地震图，用户可直接 下载使用，省去了自己计算的麻烦。</p>
+<p>下面列出相关网页：</p>
+<ol style="list-style-type: decimal">
+<li>项目主页： <a href="http://ds.iris.edu/ds/products/syngine/" class="uri" target="_blank" rel="external">http://ds.iris.edu/ds/products/syngine/</a></li>
+<li>网页版下载工具： <a href="https://service.iris.edu/irisws/syngine/1" class="uri" target="_blank" rel="external">https://service.iris.edu/irisws/syngine/1</a></li>
+<li>命令行下载工具： <a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts/wiki/FetchSyn_usage" target="_blank" rel="external">FetchSyn</a></li>
+<li>用 ObsPy 下载理论地震图： <a href="http://nbviewer.jupyter.org/gist/krischer/3e655576e4d17e6c95f2" target="_blank" rel="external">Using Syngine with ObsPy</a></li>
+<li>AxiSEM 计算时所使用的输入模型文件: http://ds.iris.edu/ds/products/emc-syngine/</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，还需要足够的 计算机资源以及计算时间。&lt;/p&gt;
+&lt;p&gt;IRIS 的 Syngine 服务使用 &lt;a href=&quot;http://sei
+    
+    </summary>
+    
+      <category term="地震学软件" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="IRIS" scheme="http://seisman.info/tags/IRIS/"/>
+    
+      <category term="理论地震图" scheme="http://seisman.info/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>识别 TauP 输出中的多个 P 震相</title>
+    <link href="http://seisman.info/taup-identify-multiple-P-phases.html"/>
+    <id>http://seisman.info/taup-identify-multiple-P-phases.html</id>
+    <published>2016-05-22T03:46:41.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用 TauP 计算 <strong>浅源近震</strong> 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰， 因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。 有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。</p>
+<a id="more"></a>
+<p>以最简单也最常用的 PREM 模型为例， TauP 中给出了 PREM 模型的前几列如下：</p>
+<pre><code>$ head -10 prem.nd
+    0.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     6.80000   3.90000   2.90000    1350.0     600.0
+   24.40     6.80000   3.90000   2.90000    1350.0     600.0
+mantle
+   24.40     8.11061   4.49094   3.38076    1446.0     600.0
+   40.00     8.10119   4.48486   3.37906    1446.0     600.0
+   60.00     8.08907   4.47715   3.37688    1447.0     600.0
+   80.00     8.07688   4.46953   3.37471     195.0      80.0
+  115.00     8.05540   4.45643   3.37091     195.0      80.0</code></pre>
+<p>可以看到，15 km 处是上下地壳的分界面，24.4 km 是 Moho 面。</p>
+<p>那么，对于一个深度为 5 km 的震源来说，在小震中距时可能会有 5 个 P 波震相：</p>
+<ol style="list-style-type: decimal">
+<li>震相 1： 从源出发向上传播直接到台站</li>
+<li>震相 2：15 km 界面的反射波</li>
+<li>震相 3：15 km 界面处的首波</li>
+<li>震相 4：Moho 面的反射波</li>
+<li>震相 5：Moho 面的首波</li>
+</ol>
+<p>下面的命令计算了震源深度 5 km，震中距 100 km 处的 P 波震相走时。</p>
+<pre><code>$ taup_time -mod prem -h 5 -km 100 -ph p,P
+
+Model: prem
+Distance   Depth   Phase   Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name    Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-----------------------------------------------------------------------------------
+    0.90     5.0   P         16.81    13.657     45.47    45.43     0.90   = P
+    0.90     5.0   P         16.93    16.313     58.38    58.31     0.90   = P
+    0.90     5.0   p         17.26    19.135    -87.30    86.48     0.90   = p
+    0.90     5.0   P         17.33    15.646     54.76    54.70     0.90   = P
+    0.90     5.0   P         17.75    18.571     75.80    75.62     0.90   = P</code></pre>
+<p>输出的 5 个 P 震相与之前的预期相同，很明显输出的第三行对应震相 1，也就是 p 震相。</p>
+<p>那么如何确定其他震相的身份呢？当然可以通过射线参数、出射角等信息判断，但是如上面的输出所示，其实 很困难。最好的解决办法是，利用 TauP 强大的震相命名功能来指定计算特定震相的到时。例如， <code>Pn</code> 代表 Moho 面的首波， <code>Pv15P</code> 代表 15 km 界面的反射波， <code>PvmP</code> 代表 Moho 界面反射波。</p>
+<pre><code>$ taup_time -mod prem -h 5 -km 100 -ph p,P,Pn,Pg,Pv15P,PvmP,Pv24.4P
+
+Model: prem
+Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name      Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-------------------------------------------------------------------------------------
+    0.90     5.0   P           16.81    13.657     45.47    45.43     0.90   = P
+    0.90     5.0   Pn          16.81    13.657     45.47    45.43     0.90   = Pn
+    0.90     5.0   P           16.93    16.313     58.38    58.31     0.90   = P
+    0.90     5.0   Pg          16.93    16.313     58.38    58.31     0.90   = Pg
+    0.90     5.0   p           17.26    19.135    -87.30    86.48     0.90   = p
+    0.90     5.0   P           17.33    15.646     54.76    54.70     0.90   = P
+    0.90     5.0   PvmP        17.33    15.646     54.76    54.70     0.90   * Pv24.4P
+    0.90     5.0   Pv24.4P     17.33    15.646     54.76    54.70     0.90   = Pv24.4P
+    0.90     5.0   P           17.75    18.571     75.80    75.62     0.90   = P
+    0.90     5.0   Pg          17.75    18.571     75.80    75.62     0.90   = Pg
+    0.90     5.0   Pv15P       17.75    18.571     75.80    75.62     0.90   = Pv15P</code></pre>
+<p>从这个命令的输出中可以提取出很多信息：</p>
+<ol style="list-style-type: decimal">
+<li>第 1 行和第 2 行是同一个震相，即 Pn，也就是 Moho 界面的首波。同时也说明，震相名 P 包括了反射波、首波等</li>
+<li>第 3 行与第 4 行是同一个震相，即 Pg，也就是地壳内 turning 的波</li>
+<li>第 5 行是上行波 p，这个很明显了</li>
+<li>第 6-8 行是同一个震相，是 Moho 界面的反射波，这个震相可以用 P、PvmP 或 Pv24.4P</li>
+<li>第 9-11 行是同一个震相，是 15 km 界面的反射波</li>
+</ol>
+<p>5 个震相中有四个的路径已经很确定了，唯一不确定的就是第 3-4 行这个震相。其实跟前面的理论与其对比一下 可以猜出来，这个震相应该是 15 km 界面的首波。那么如何证明呢？方法很简单，把 PREM 模型中 Moho 界面 的深度改到 15 km，此时计算出的 Pn 就是 15 km 界面的首波了。</p>
+<p>修改后的 <code>prem2.nd</code> 的前几行内容如下（其实只是修改了 <code>mantle</code> 这一行的位置）：</p>
+<pre><code>$ head -10 prem.nd
+    0.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     5.80000   3.20000   2.60000    1456.0     600.0
+mantle
+   15.00     6.80000   3.90000   2.90000    1350.0     600.0
+   24.40     6.80000   3.90000   2.90000    1350.0     600.0
+   24.40     8.11061   4.49094   3.38076    1446.0     600.0
+   40.00     8.10119   4.48486   3.37906    1446.0     600.0
+   60.00     8.08907   4.47715   3.37688    1447.0     600.0
+   80.00     8.07688   4.46953   3.37471     195.0      80.0
+  115.00     8.05540   4.45643   3.37091     195.0      80.0</code></pre>
+<p>执行相同的命令，可以看到</p>
+<pre><code>$ taup_time -mod prem2 -h 5 -km 100 -ph p,P,Pn,Pg,Pv15P,PvmP,Pv24.4P
+
+Model: prem2
+Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name      Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-------------------------------------------------------------------------------------
+    0.90     5.0   P           16.81    13.657     45.47    45.43     0.90   = P
+    0.90     5.0   P           16.93    16.313     58.38    58.31     0.90   = P
+    0.90     5.0   Pn          16.93    16.314     58.39    58.31     0.90   = Pn
+    0.90     5.0   p           17.26    19.135    -87.30    86.48     0.90   = p
+    0.90     5.0   P           17.33    15.646     54.76    54.70     0.90   = P
+    0.90     5.0   Pv24.4P     17.33    15.646     54.76    54.70     0.90   = Pv24.4P
+    0.90     5.0   P           17.75    18.571     75.80    75.62     0.90   = P
+    0.90     5.0   Pv15P       17.75    18.571     75.80    75.62     0.90   = Pv15P
+    0.90     5.0   PvmP        17.75    18.571     75.80    75.62     0.90   * Pv15P</code></pre>
+<p>新模型下 Moho 界面在 15 km 处，所以此时 PvmP 是 15 km 的反射波，而 Pn 则是 15 km 的首波。</p>
+<p>至此，所有的 5 个 P 震相都被正确识别出来啦。对于更复杂的速度模型，判断方法类似。</p>
+<p>结合以上的分析，总结出来震相走时方面的几个需要注意的地方：</p>
+<ol style="list-style-type: decimal">
+<li>首波在某些震中距会比反射波快（这在地震学基础中已经提到了）</li>
+<li>浅部界面的反射波并不一定比深部界面的反射波更早到（此处 Pv15P 晚于 Pv24.4P）</li>
+<li>除了 Pn 之外最早到的震相不一定就是直达波或反射波，也有可能是其他界面的首波（此处 15 km 界面的首波是除 Pn 外最早到的）</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用 TauP 计算 &lt;strong&gt;浅源近震&lt;/strong&gt; 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰， 因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。 有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="地震学软件" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="走时" scheme="http://seisman.info/tags/%E8%B5%B0%E6%97%B6/"/>
+    
+      <category term="TauP" scheme="http://seisman.info/tags/TauP/"/>
+    
+      <category term="震相" scheme="http://seisman.info/tags/%E9%9C%87%E7%9B%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TauP 自定义模型</title>
+    <link href="http://seisman.info/taup-custom-models.html"/>
+    <id>http://seisman.info/taup-custom-models.html</id>
+    <published>2016-05-20T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型 位于 TauP 软件包的 <code>StdModels</code> 目录下。日常科研中，这些标准速度模型是不能满足 需求的，因而需要自定义速度模型。</p>
+<a id="more"></a>
+<h2 id="速度模型格式">速度模型格式</h2>
+<p>通常，自定义的模型都是在标准模型的基础上对少量改动。所以，要想自定义模型，先要了解 TauP 模型的格式。TauP 支持两种速度模型格式： <code>nd</code> 和 <code>tvel</code>。</p>
+<h3 id="tvel-格式">tvel 格式</h3>
+<p>以 ak135 模型为例，其前 10 行的内容如下：</p>
+<pre><code>$ head -10 ak135.tvel
+ak135 - P
+ak135 - S
+     0.000      5.8000      3.4600     2.7200
+    20.000      5.8000      3.4600      2.7200
+    20.000      6.5000      3.8500      2.9200
+    35.000      6.5000      3.8500      2.9200
+    35.000      8.0400      4.4800      3.3198
+    77.500      8.0450      4.4900      3.3455
+   120.000      8.0500      4.5000      3.3713
+   165.000      8.1750      4.5090      3.3985</code></pre>
+<p>其中前两行是注释行，会被自动忽略，但这两行是必须的。接下来每行给定一个深度处的参数值， 两个深度之间的参数通过线性插值得到。若某个深度处有两个不同的参数值，则该深度处是一个 速度界面，比如上面的几行中 20 和 35 都是速度界面，其余深度则不是。</p>
+<h3 id="nd-格式">nd 格式</h3>
+<p>以 PREM 模型为例，其前 10 行的内容如下：</p>
+<pre><code>$ head -10 prem.nd
+    0.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     6.80000   3.90000   2.90000    1350.0     600.0
+   24.40     6.80000   3.90000   2.90000    1350.0     600.0
+mantle
+   24.40     8.11061   4.49094   3.38076    1446.0     600.0
+   40.00     8.10119   4.48486   3.37906    1446.0     600.0
+   60.00     8.08907   4.47715   3.37688    1447.0     600.0
+   80.00     8.07688   4.46953   3.37471     195.0      80.0
+  115.00     8.05540   4.45643   3.37091     195.0      80.0</code></pre>
+<p>与 tvel 格式类似，也是每行指定一个深度处的参数值。两个深度之间的参数通过线性插值得到。 若某个深度处有两个不同的参数值，则该深度处是一个速度界面。不同之处在于， nd 格式中没有 前两列注释行，且有专门的行来指定地球内部的重要界面：Moho、CMB 和 ICB。</p>
+<h2 id="微调模型">微调模型</h2>
+<p>假定要以 PREM 模型为基础来自定义模型。首先将标准 PREM 模型 <code>prem.nd</code> 复制一份到 工作目录，并重命名为 <code>model1.nd</code> 。直接执行如下命令就可以计算新模型下的震相走时。</p>
+<pre><code>$ taup_time -mod model1 -ph p,P,Pn -h 5 -km 200
+
+Model: model1
+Distance   Depth   Phase   Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name    Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-----------------------------------------------------------------------------------
+    1.80     5.0   P         29.09    13.657     45.47    45.43     1.80   = P
+    1.80     5.0   Pn        29.09    13.657     45.47    45.43     1.80   = Pn
+    1.80     5.0   P         31.60    16.312     58.38    58.30     1.80   = P
+    1.80     5.0   P         31.75    16.187     57.67    57.60     1.80   = P
+    1.80     5.0   p         34.48    19.158      0.00    87.84     1.80   = p
+    1.80     5.0   P         34.73    18.961     81.80    81.50     1.80   = P</code></pre>
+<p>若 <code>-mod</code> 后的参数没有以 <code>.nd</code> 或 <code>.tvel</code> 结尾，则命令会首先到标准模型中找，若找不到则到当前 目录下找。</p>
+<p>若 <code>-mod</code> 后的参数以 <code>.nd</code> 或 <code>.tvel</code> 结尾，则命令只会在当前目录下寻找模型文件。所以，在使用 自定义的模型时还是建议加上后缀比较好。</p>
+<p>接下来就是修改模型了，基本上不乱改都不会出问题。</p>
+<h2 id="加速计算">加速计算</h2>
+<p>修改完模型后，TauP 中的所有命令就都可以使用这个模型了。如果你需要多次调用 TauP 来计算自定义模型 下的震相走时，你会发现，自定义的模型算走时总是比标准模型算的要慢。</p>
+<p>出现这个现象是因为，TauP 已经针对每个标准模型计算了其对应的 tau 表。这个表的计算量很大，但只与模型 有关，与震中距、震源深度等都无关。因而先把这个表计算出来，则可以实现走时计算的加速。</p>
+<p>计算表的方式也很简单： <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ taup_create -nd model1.nd</div><div class="line">$ taup_time -mod model1.taup -ph p,P,Pn -h 5 -km 200</div></pre></td></tr></table></figure></p>
+<p><code>taup_create</code> 命令会生成一个后缀为 <code>.taup</code> 的二进制文件，这个文件可以直接在命令中使用，如上面 的第二个命令所示。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型 位于 TauP 软件包的 &lt;code&gt;StdModels&lt;/code&gt; 目录下。日常科研中，这些标准速度模型是不能满足 需求的，因而需要自定义速度模型。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="地震学软件" scheme="http://seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="TauP" scheme="http://seisman.info/tags/TauP/"/>
+    
+      <category term="模型" scheme="http://seisman.info/tags/%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>征集令</title>
+    <link href="http://seisman.info/you-are-wanted.html"/>
+    <id>http://seisman.info/you-are-wanted.html</id>
+    <published>2016-04-12T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="维护者征集">维护者征集</h2>
+<p>下面列出了我发起的几个开源项目。挖了坑但是没有时间去填，所以需要征集志愿者参与维护。志愿者越多越好，项目开源的目的就是让所有人都可以参与到维护中来。</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/seisman/SAC_Docs_zh" target="_blank" rel="external">SAC 参考手册</a> 日常维护</li>
+<li><a href="https://github.com/gmt-china/gmt-china.github.io" target="_blank" rel="external">GMT 中文社区主页</a> 日常维护，网页设计</li>
+<li><a href="https://github.com/gmt-china/GMT_docs" target="_blank" rel="external">GMT 参考手册</a> 日常维护</li>
+<li><a href="https://github.com/gmt-china/GMT_modules" target="_blank" rel="external">GMT 模块手册</a> 日常维护，模块用法整理</li>
+<li><a href="https://github.com/gmt-china/GMT_examples" target="_blank" rel="external">GMT 示例集</a> 日常维护，网页设计，示例投稿</li>
+<li><a href="https://github.com/gmt-china/gmt-easy-installer" target="_blank" rel="external">GMT 快速安装脚本</a> 测试不同的平台</li>
+<li><a href="https://github.com/seisman/GMT5-pssac" target="_blank" rel="external">pssac for GMT5</a> 程序核心已完成，需要修复一些严重 BUG</li>
+</ol>
+<h2 id="博文征集">博文征集</h2>
+<p>有些东西值得写，但是跟我目前的科研方向关系不大，所以没有足够的时间和动力去写。所以将这些我感兴趣的话题列出来，有了解相关方向且感兴趣的读者，可以考虑写一份投稿到本博客。</p>
+<p>征集的博文列表见 <a href="https://github.com/seisman/seisman.info.posts/labels/%E6%AC%A2%E8%BF%8E%E6%8A%95%E7%A8%BF" target="_blank" rel="external">“欢迎投稿”标签</a>。</p>
+<p>除此之外，读者也可以在评论区写下自己觉得有意义的话题，我会酌情将其列在待写博文中。</p>
+<p>投稿可直接将完整的稿件发送给我，也可以在博客的 <a href="https://github.com/seisman/seisman.info.posts" target="_blank" rel="external">项目源码</a> 中发 Pull Request。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;维护者征集&quot;&gt;维护者征集&lt;/h2&gt;
+&lt;p&gt;下面列出了我发起的几个开源项目。挖了坑但是没有时间去填，所以需要征集志愿者参与维护。志愿者越多越好，项目开源的目的就是让所有人都可以参与到维护中来。&lt;/p&gt;
+&lt;ol style=&quot;list-style-type: deci
+    
+    </summary>
+    
+      <category term="胡言乱语" scheme="http://seisman.info/categories/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
+    
+    
+      <category term="博客" scheme="http://seisman.info/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 psxy 绘制铁轨线</title>
+    <link href="http://seisman.info/plot-rail-tracks.html"/>
+    <id>http://seisman.info/plot-rail-tracks.html</id>
+    <published>2016-03-29T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>想要绘制黑白相间的铁轨线。既然是画线，肯定要用 <code>psxy</code> 了，但是 <code>psxy</code> 命令自身是不支持画这种黑白相间的线的，因而就需要使用一些技巧。具体技巧如下例：</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">R=0/10/0/5</div><div class="line">J=M10c</div><div class="line">PS=test.ps</div><div class="line"></div><div class="line">gmt psbasemap -J<span class="variable">$J</span> -R<span class="variable">$R</span> -B1 -K &gt; <span class="variable">$PS</span></div><div class="line"></div><div class="line"><span class="comment"># Start rail tracks</span></div><div class="line">gmt psxy line.txt -J<span class="variable">$J</span> -R<span class="variable">$R</span> -K -O -W5p,black        &gt;&gt; test.ps</div><div class="line">gmt psxy line.txt -J<span class="variable">$J</span> -R<span class="variable">$R</span> -K -O -W4p,white,20_20: &gt;&gt; test.ps</div><div class="line"><span class="comment"># End rail tracks</span></div><div class="line"></div><div class="line">gmt psxy -J<span class="variable">$J</span> -R<span class="variable">$R</span> -T -O &gt;&gt; <span class="variable">$PS</span></div></pre></td></tr></table></figure>
+<p>简单说明一下原理，其实就是每条线画两遍。第一个 <code>psxy</code> 命令绘制了一条宽度为 <code>5p</code> 的黑线。第二个 <code>psxy</code> 命令绘制了一条宽度为 <code>4p</code> 的线，这条线的线型 <code>20_20:</code> 表示线段先是长度为 <code>20p</code> 的白线， 然后是长度为 <code>20p</code> 的空白，线段的空白段由于是透明的，所以会把第一次画的黑色线段露出来。 最终就实现了铁轨线的效果。</p>
+<p>绘图效果如下：</p>
+<div class="figure">
+<img src="/images/2016033001.png">
+
+</div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想要绘制黑白相间的铁轨线。既然是画线，肯定要用 &lt;code&gt;psxy&lt;/code&gt; 了，但是 &lt;code&gt;psxy&lt;/code&gt; 命令自身是不支持画这种黑白相间的线的，因而就需要使用一些技巧。具体技巧如下例：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GMT" scheme="http://seisman.info/categories/GMT/"/>
+    
+    
+      <category term="GMT技巧" scheme="http://seisman.info/tags/GMT%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>判断 SAC 数据是否已去除仪器响应</title>
+    <link href="http://seisman.info/instrumental-response-removed-or-not.html"/>
+    <id>http://seisman.info/instrumental-response-removed-or-not.html</id>
+    <published>2016-03-12T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>有些时候，波形数据拿到手了，但是却不知道波形数据是否有被处理过，尤其是有没有去除仪器响应。</p>
+<p>先说结论，判断一个 SAC 数据是否已经去除仪器响应的准则是：</p>
+<blockquote>
+<p>若一个 SAC 数据中每个数据点的值都是整数，则这个数据的仪器响应没有被去除的概率为 99.9%</p>
+</blockquote>
+<a id="more"></a>
+<p>几点说明：</p>
+<ol style="list-style-type: decimal">
+<li>可以使用 <a href="https://github.com/seisman/sac_tools" target="_blank" rel="external">sac2col</a> 将 SAC 的每个数据点提取出一列 ASCII 数据，这样就可以直观的去判断是否符合上述准则</li>
+<li>这个准则仅对现代的数字地震仪成立</li>
+</ol>
+<p>要理解这个准则成立的原因，首先需要对仪器响应有清晰的认识。在博客的前几篇博文中 已经有了详细的介绍。简单来说，地面的运动物理量（比如速度，单位为 <code>m/s</code>）会首先被 转换成电压信号（单位为 <code>V</code>），然后每个电压值会被转换成离散的数字信号，数字信号的 最小间隔由模数转换器决定，故而现代数字地震仪的输出的单位总是 <code>counts</code>，即最原始的 波形数据总是最小间隔的整数倍。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有些时候，波形数据拿到手了，但是却不知道波形数据是否有被处理过，尤其是有没有去除仪器响应。&lt;/p&gt;
+&lt;p&gt;先说结论，判断一个 SAC 数据是否已经去除仪器响应的准则是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若一个 SAC 数据中每个数据点的值都是整数，则这个数据的仪器响应没有被去除的概率为 99.9%&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="SAC" scheme="http://seisman.info/categories/SAC/"/>
+    
+    
+      <category term="仪器响应" scheme="http://seisman.info/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在极坐标下绘制深度剖面</title>
+    <link href="http://seisman.info/depth-profile-in-polar-coordinates.html"/>
+    <id>http://seisman.info/depth-profile-in-polar-coordinates.html</id>
+    <published>2016-03-11T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>在做大区域层析成像时，通常需要绘制深度剖面。一个简单的示例如下：</p>
+<div class="figure">
+<img src="/images/2016031201.png">
+
+</div>
+<p>这样的深度剖面图实际上是在极坐标下绘制的。先直接给出绘制上图所使用的命令:</p>
+<pre><code>gmt psbasemap -R60/80/5571/6371 -JPa15c/70z -Bx5 -By200 -BWNse &gt; test.ps</code></pre>
+<a id="more"></a>
+<p>要想理解这样一张图，首先要对极坐标投影有一定的了解。以 <code>-JP</code> 为例，其语法为:</p>
+<pre><code>-JP[a]&lt;width&gt;[/&lt;base&gt;][r|z]</code></pre>
+<p>先绘制一个最简单的极坐标的例子:</p>
+<pre><code>gmt psbasemap -R0/360/0/6371 -JP15c -Bx30 -Byg2000 &gt; test.ps</code></pre>
+<div class="figure">
+<img src="/images/2016031202.png">
+
+</div>
+<p>从这张图中可以看出，theta 角的定义是相对于水平轴方向逆时针旋转的角度，且圆心处 r 值为 0，而 <code>-JP15c</code> 代表的是整个图的宽度，本图中也就是圆的直径。</p>
+<p>回到具体的问题，因为要绘制 60 度到 80 度范围内 0 到 800 公里的一个深度剖面，所以 <code>-R</code> 的范围应该取为 <code>-R60/80/5571/6371</code> :</p>
+<pre><code>gmt psbasemap -R60/80/5571/6371 -JP15c -Bx5 -By200 -BWNse &gt; test1.ps</code></pre>
+<p>此时的效果图如下：</p>
+<div class="figure">
+<img src="/images/2016031203.png">
+
+</div>
+<p>需要尤其注意的是，此时 <code>-JP</code> 中的 15c 代表的依然是整个图的宽度，而不是其所对应的圆的半径或直径。</p>
+<p>在这种图的基础上，将投影方式进一步修改为 <code>-JPa15c/70z</code> ，其中：</p>
+<ol style="list-style-type: decimal">
+<li><code>a</code> 的作用在于使得 theta 代表方位角，即相对于正北方向顺时针旋转的角度</li>
+<li><code>z</code> 使得标注的不是半径而是深度，即标注的不是 5571 到 6371 而是 0 到 800</li>
+<li><code>/70</code> 的作用是使得极坐标旋转 70 度，这样图看起来就更 “正” 了</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在做大区域层析成像时，通常需要绘制深度剖面。一个简单的示例如下：&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;/images/2016031201.png&quot; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;这样的深度剖面图实际上是在极坐标下绘制的。先直接给出绘制上图所使用的命令:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gmt psbasemap -R60/80/5571/6371 -JPa15c/70z -Bx5 -By200 -BWNse &amp;gt; test.ps&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="GMT" scheme="http://seisman.info/categories/GMT/"/>
+    
+    
+      <category term="GMT技巧" scheme="http://seisman.info/tags/GMT%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 SAC 快速拾取震相</title>
+    <link href="http://seisman.info/faster-ppk.html"/>
+    <id>http://seisman.info/faster-ppk.html</id>
+    <published>2016-02-18T16:00:00.000Z</published>
+    <updated>2016-02-27T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>震相拾取，是地震学的一个基本工作。SAC 提供了 <code>plotpk</code> 命令，可以用于手动拾取 震相到时，用起来还算是比较简单方便。</p>
+<a id="more"></a>
+<h2 id="痛点">痛点</h2>
+<p>在使用 <code>plotpk</code> 拾取震相时，还是会遇到一些不如意的地方。尤其是在有大量波形 数据需要拾取的时候。下面列出我日常遇到的几个痛点：</p>
+<ol style="list-style-type: decimal">
+<li>拾取震相时通常需要按下 <code>T</code> 和数字键，有时还需要按下 <code>B</code> 或 <code>N</code> 来上下翻页。 效率低下，一方面需要按两次按键才能标记一个到时，另一方面大多数数字键与 <code>T</code> 距离较远，手指姿势比较别扭且容易误敲键盘</li>
+<li>无法删除某个震相标记。如果想标记 T0，但是一不小心标记了 T1，此时没法将 T1 中的到时删除</li>
+</ol>
+<h2 id="解决办法">解决办法</h2>
+<p>修改了 SAC 源码中的 <code>xppk.c</code> ，基本解决了以上痛点。关于源码的几点说明：</p>
+<ol style="list-style-type: decimal">
+<li>SAC 的协议规定了不能私自修改 SAC 源码，此处给出了修改后的 <code>xppk.c</code> ，低调低调</li>
+<li>修改版源码基于 SAC v101.6a，所以在其他版本上可能无法使用</li>
+<li>下载修改版源码，用其覆盖 SAC v101.6a 源码里的 <code>src/gam/xppk.c</code>，然后重新编译 SAC 即可</li>
+</ol>
+<p>源码下载： <a href="http://7j1zxm.com1.z0.glb.clouddn.com/downloads/xppk.c" target="_blank" rel="external">xppk.c</a></p>
+<p>修改后的源码新增了如下功能：</p>
+<ol style="list-style-type: decimal">
+<li>直接使用数字键拾取震相，即省略了按键 <code>T</code> ，按 <code>0</code> 就拾取到时 T0，按 <code>1</code> 就拾取到时 T1</li>
+<li>按下 <code>@</code> 键即可删除最近一次到时标记（A、F、P、S 以及 T0 到 T9）</li>
+</ol>
+<p>修改后的源码与原 SAC 有如下不兼容的地方：</p>
+<ol style="list-style-type: decimal">
+<li>原 SAC 中，数字键 0 到 4 被用于定义震相质量，修改后的源码中 0 到 9 则被用于标记震相到时</li>
+<li>原 SAC 中，按键 <code>@</code> 用于一次性删除多个震相到时（A、F、P、S 和 T0），修改后的源码中 <code>@</code> 可以删除任意一个到时标记</li>
+</ol>
+<p>考虑到定义震相质量和一次性删除多个震相到时这两个功能很少用到，因而为了拾取 震相的便利性而废弃了这两个功能，虽然带来了不兼容问题，但是基本无伤大雅。</p>
+<h2 id="一些说明">一些说明</h2>
+<p>关于数字键标记到时的说明：</p>
+<ol style="list-style-type: decimal">
+<li>依然可以使用 <code>T + 数字键</code> 来标记到时。即 <code>T</code> 可以省略也可以不省略，兼容之前的标记到时的方法</li>
+<li>在 ppk 模式下单击鼠标，相当于敲键 <code>L</code>，此时会在图上显示当前点的 X 和 Y 值， 所以如果可以通过简单的单击就标记到时，应该会更高效。但目前还没有实现该功能， 一方面是涉及到一些技术细节，另一方面是单击操作太容易发生，标记到时是 变得简单了，但误标记也变得容易发生</li>
+</ol>
+<p>关于 <code>@</code> 删除震相到时功能的说明：</p>
+<ol style="list-style-type: decimal">
+<li>实现原理：定义一个字符型变量，用于保存上一次按键，若新按键是 <code>@</code>，且上一 按键是 A、F、P、S 或 0 到 9 中的任意一个，则删除上一按键所对应的头段变量中的到时标记</li>
+<li>表面上看，这一功能只能删除最近一次的到时标记，但实际上是可以删除任意文件的 任意一个到时标记的</li>
+</ol>
+<p>关于 <code>@</code> 删除震相到时功能的示例：</p>
+<ol style="list-style-type: decimal">
+<li>要拾取一个波形数据，在 ppk 模式下，按下数字 1，此时会标记到时 T1，再按下 @，由于上一 字符是 1，所以此时按下 <span class="citation">@会删除</span> T1 的到时标记。实际操作时，屏幕上会出现两个 T1，这是 显示的问题，通过放大缩小刷新一下图片就会发现到时 T1 已被删除</li>
+<li>要拾取一个波形数据，在 ppk 模式下依次按下 0、1、2，此时会标记到时 T0、T1 和 T2。 此时按下 @，由于上一字符是 2，所以会删除 T2 中的到时。若想要删除 T0 的到时，则需要 先按下 0 再按下 @，按下 0 会重新标记到时 T0，再按下 <span class="citation">@时上一字符由于是</span> 0，所以会删除 T0 中的 到时。</li>
+</ol>
+<h2 id="修订历史">修订历史</h2>
+<ul>
+<li>2016-02-19：直接用数字键标记到时</li>
+<li>2016-02-25：新增删除到时标记功能</li>
+<li>2016-02-28：修复了 <span class="citation">@符号无法删除</span> P 和 S 到时的 BUG</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;震相拾取，是地震学的一个基本工作。SAC 提供了 &lt;code&gt;plotpk&lt;/code&gt; 命令，可以用于手动拾取 震相到时，用起来还算是比较简单方便。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SAC" scheme="http://seisman.info/categories/SAC/"/>
+    
+    
+      <category term="SAC技巧" scheme="http://seisman.info/tags/SAC%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="震相" scheme="http://seisman.info/tags/%E9%9C%87%E7%9B%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于博客无法访问的说明</title>
+    <link href="http://seisman.info/gfw.html"/>
+    <id>http://seisman.info/gfw.html</id>
+    <published>2016-01-19T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近，博客出现了无法访问的情况。就我自己遇到的情况来说，同一个实验室里，台式机连接了交换机，无法访问博客，笔记本连接了无线路由，则可以正常访问。</p>
+<p>台式机下 ping 我的博客，总是返回 127.0.0.1，也就是本地地址。咨询了学校的网络管理员，得出的结论是 GFW 对 info 后缀的域名做了 DNS 污染，进而导致域名解析时返回 127.0.0.1，好忧伤。。。</p>
+<p>就我掌握的情况来看：</p>
+<ol style="list-style-type: decimal">
+<li>某些地区会由于 DNS 污染而无法访问</li>
+<li>DNS 污染似乎不是持续性的，时好时坏</li>
+<li>手机 4G 网络不受影响</li>
+<li>翻墙可以访问</li>
+</ol>
+<p>目前我无法解决此问题，因而如果你遇到无法访问本博客的问题，可以尝试通过如下方法来解决：</p>
+<ol style="list-style-type: decimal">
+<li>使用手机 4G 网络访问，前提是你不心疼流量</li>
+<li><p>修改 hosts，在 hosts 文件中加入如下语句:</p>
+<pre><code>192.30.252.153 seisman.info</code></pre>
+<p>具体如何修改请自行解决</p></li>
+<li>修改 DNS 服务器，比如可以使用科大 DNS，具体如何修改请自行解决</li>
+<li><p>使用翻墙工具，比如 lantern 或者 XX-net</p></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近，博客出现了无法访问的情况。就我自己遇到的情况来说，同一个实验室里，台式机连接了交换机，无法访问博客，笔记本连接了无线路由，则可以正常访问。&lt;/p&gt;
+&lt;p&gt;台式机下 ping 我的博客，总是返回 127.0.0.1，也就是本地地址。咨询了学校的网络管理员，得出的结论是 
+    
+    </summary>
+    
+      <category term="胡言乱语" scheme="http://seisman.info/categories/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
+    
+    
+      <category term="博客" scheme="http://seisman.info/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>绘制颜色渐变的线条</title>
+    <link href="http://seisman.info/plot-lines-with-gradient-colors.html"/>
+    <id>http://seisman.info/plot-lines-with-gradient-colors.html</id>
+    <published>2016-01-17T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>想要绘制一条颜色变化的线段，下面是演示代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment"># GMT v5.2.1</span></div><div class="line"></div><div class="line">gmt makecpt -Crainbow -T-2/2/1 &gt; lines.cpt</div><div class="line">gmt psxy -JX15c/4c -R0/6/0/4 -B1 -Clines.cpt -W2p &gt; test.ps &lt;&lt; EOF</div><div class="line">&gt; -Z-1.5</div><div class="line">1 2</div><div class="line">2 2</div><div class="line">&gt; -Z-0.5</div><div class="line">2 2</div><div class="line">3 2</div><div class="line">&gt; -Z0.5</div><div class="line">3 2</div><div class="line">4 2</div><div class="line">&gt; -Z1.5</div><div class="line">4 2</div><div class="line">5 2</div><div class="line">EOF</div></pre></td></tr></table></figure>
+<p>绘图效果如下图：</p>
+<div class="figure">
+<img src="/images/2016011801.png">
+
+</div>
+<a id="more"></a>
+<p>简单解释一下：</p>
+<ol style="list-style-type: decimal">
+<li><code>makecpt</code> 命令制作了一个 - 2 到 2 间隔为 1 的 CPT 文件</li>
+<li><code>psxy</code> 命令中使用了 <code>-C</code> 选项，此时需要输入数据是多段表数据，且每段数据的段头记录中，需要有 <code>-Z&lt;val&gt;</code> 以指定每段数据的 Z 值</li>
+<li>实际绘图时，对于每段数据，命令会读取该数据数据的段头记录中的 <code>-Z&lt;val&gt;</code> 中的 Z 值，然后到 CPT 文件中查找 Z 值所对应的颜色，作为该段线段的颜色</li>
+</ol>
+<p>实际绘图时，可能遇到的情况是：已知 A 点和 B 点的 Z 值，A 点到 B 点连线上 Z 值渐变，想要通过线条颜色的渐变来体现 Z 值的渐变。此时需要一些额外的处理，其中涉及到一些编程，所以下面仅提供思路。</p>
+<p>已知 A 点和 B 点坐标，利用如下命令将 A 到 B 的连线等分成若干份:</p>
+<pre><code>gmt project -C&lt;xA&gt;/&lt;yA&gt; -E&lt;xB&gt;/&lt;yB&gt; -G&lt;dist&gt;</code></pre>
+<p>其中 <code>-C</code> 后接 A 点坐标， <code>-E</code> 后接 B 点坐标， <code>-G</code> 后接等分后相邻两点间的距离。 <code>&lt;dist&gt;</code> 越小，A 到 B 线段的颜色变化就越平滑。</p>
+<p>最终输出的结果中有三列数据：X 坐标、Y 坐标和与 A 点的距离。对于生成的每个点而言，根据 A 和 B 两点的 Z 值、A 和 B 两点之间的距离以及该点与 A 点之间的距离，通过简单的线性插值，即可得到每一点的 Z 值。</p>
+<p>有了 AB 之间每一点的坐标和 Z 值，就可以构建如上例所示的多段数据。对于每段数据而言，其 Z 值可以取该段数据首尾两点 Z 值的平均，或者其他取法亦可。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想要绘制一条颜色变化的线段，下面是演示代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# GMT v5.2.1&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;gmt makecpt -Crainbow -T-2/2/1 &amp;gt; lines.cpt&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;gmt psxy -JX15c/4c -R0/6/0/4 -B1 -Clines.cpt -W2p &amp;gt; test.ps &amp;lt;&amp;lt; EOF&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt; -Z-1.5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;1 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt; -Z-0.5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt; -Z0.5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt; -Z1.5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;EOF&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;绘图效果如下图：&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;/images/2016011801.png&quot; /&gt;
+
+&lt;/div&gt;
+    
+    </summary>
+    
+      <category term="GMT" scheme="http://seisman.info/categories/GMT/"/>
+    
+    
+      <category term="GMT技巧" scheme="http://seisman.info/tags/GMT%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SAC 中将位移记录转换成速度记录</title>
+    <link href="http://seisman.info/sac-convert-displacement-to-velocity.html"/>
+    <id>http://seisman.info/sac-convert-displacement-to-velocity.html</id>
+    <published>2016-01-11T16:00:00.000Z</published>
+    <updated>2017-04-10T11:04:55.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>将位移记录转换成速度记录，本质上就是微分，在 SAC 中有三种方法可以实现。</p>
+<p>先生成测试用的数据:</p>
+<pre><code>SAC&gt; fg seis
+SAC&gt; rmean; rtr; taper
+SAC&gt; w seis.sac</code></pre>
+<ol style="list-style-type: decimal">
+<li><p>直接对 <code>diff</code> 命令对波形做时间域微分:</p>
+<pre><code>SAC&gt; r ./seis.sac
+SAC&gt; dif
+SAC&gt; w seis.sac.diff</code></pre></li>
+<li><p>用 <code>transfer</code> 命令去仪器响应的功能实现微分，该操作本质上在频率域完成:</p>
+<pre><code>SAC&gt; r ./seis.sac
+SAC&gt; transfer from none to vel
+   Station (CDV), Channel (-12345)
+SAC&gt; w seis.sac.transfer</code></pre></li>
+<li><p>时间域的微分在频率域等效于乘以叫频率:</p>
+<pre><code>SAC&gt; r ./seis.sac
+SAC&gt; fft
+ DC level after DFT is -0.0051373
+SAC&gt; mulomega
+SAC&gt; ifft
+SAC&gt; w seis.sac.mulomega</code></pre></li>
+</ol>
+<p>测试结果表明，三种算法的结果差别很小，可以忽略。不过需要注意的是，使用 <code>diff</code> 做时间域微分时数据点数会少一个。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将位移记录转换成速度记录，本质上就是微分，在 SAC 中有三种方法可以实现。&lt;/p&gt;
+&lt;p&gt;先生成测试用的数据:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SAC&amp;gt; fg seis
+SAC&amp;gt; rmean; rtr; taper
+SAC&amp;gt; w seis.sac&lt;/cod
+    
+    </summary>
+    
+      <category term="SAC" scheme="http://seisman.info/categories/SAC/"/>
+    
+    
+      <category term="SAC技巧" scheme="http://seisman.info/tags/SAC%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+</feed>
